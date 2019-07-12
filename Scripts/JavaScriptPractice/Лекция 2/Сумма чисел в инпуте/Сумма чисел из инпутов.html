@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Сумма чисел</title>
+</head>
+<body>
+    <input type = "text">
+    <input type = "text">
+    <input type = "text">
+    <button>Сложить</button>
+    <p></p>
+    <script>
+        var inputs = document.querySelectorAll('input');
+        var button = document.querySelector('button');
+
+        button.addEventListener('click', () => {
+            let result = document.querySelector('p');
+            result.innerHTML = 'Сумма чисел равняется ' + sumValues(inputs);
+        });
+        
+
+        function sumValues(arr){
+            let sum = 0;
+            for(let i = 0; i < arr.length; i++){
+                sum += Number(arr[i].value);
+            }
+            return sum;
+        }
+    </script>
+</body>
+</html>
