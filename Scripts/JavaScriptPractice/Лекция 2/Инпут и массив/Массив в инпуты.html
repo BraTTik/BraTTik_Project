@@ -1,0 +1,29 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Массив в инпуты</title>
+</head>
+<body>
+    <script>
+        var array = 'Яблоко,Груша,Ведро'.split(',');
+
+        addArrayValueInInput(array);
+
+        function addArrayValueInInput(arr){
+            for(let i = 0; i < arr.length; i++){
+                let input = createInput('text');
+                input.value = arr[i];
+                document.body.appendChild(input);
+            }
+        }
+
+        function createInput(type){
+            let input = document.createElement('input');
+            input.type = type;
+            return input;
+        }
+    </script>
+</body>
+</html>
