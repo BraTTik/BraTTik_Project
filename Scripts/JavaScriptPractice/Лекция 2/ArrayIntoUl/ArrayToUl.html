@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ArrayToUl</title>
+</head>
+<body>
+    <script>
+        var arrayOfNumbers = [1,2,3,4,5,6,7];
+
+        document.body.appendChild(arrayToUl(arrayOfNumbers));
+
+        function arrayToUl(arr){
+            let ul = createUl();
+            for(let i = 0; i < arr.length; i++){
+                let li = createLi(arr[i]);
+                ul.appendChild(li);
+            }
+            return ul;
+        }
+
+        function createUl(){
+            let ul = document.createElement('ul');
+            return ul;
+        }
+        function createLi(text){
+            let li = document.createElement('li');
+            li.innerHTML = text;
+            return li;
+        }
+    </script>
+</body>
+</html>
