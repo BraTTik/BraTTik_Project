@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>appendElem</title>
+</head>
+<body>
+    <ul id = "list"></ul>
+    <script>
+
+        var list = document.getElementById('list');
+        var data = 'Сок,Носок,Кусок,Батон'.split(',');
+        addDataInList(data);
+
+        function addDataInList(arr){
+            for(let i = 0; i < arr.length; i++){
+                appendLi(list, arr[i]);
+            }
+        }
+        
+        function appendLi(elem, text){
+            let li = document.createElement('li');
+            li.innerHTML = text;
+            elem.appendChild(li);
+        }
+    </script>
+</body>
+</html>

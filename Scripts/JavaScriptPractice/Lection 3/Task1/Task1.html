@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Функция setText</title>
+</head>
+<body>
+    <p id = "elem1"></p>
+    <p id = "elem2"></p>
+    <p id = "elem3"></p>
+    <p id = "elem4"></p>
+    <script>
+        setText('elem1', 'Элемент 1 изменён');
+        setText('elem2', 'Да и пофиг на второй элемент');
+        setText('elem3', '3 элемент - это вода.. или земля...');
+        setText('elem4', 'Пилите, Шура, пилите! Он четвёртый!');
+
+        var elem1 = document.getElementById('elem1');
+
+        addSomeText(elem1, 'Добавлю немного отсебятины');
+
+
+        function addSomeText(elem, text){
+            checkDotInTheEnd(text);
+            elem.innerHTML += ' ' + checkDotInTheEnd(text);;
+        }
+
+        function checkDotInTheEnd(text){
+            if(text.charAt(text.length - 1) != '!'
+                && text.charAt(text.length -1) != '?'
+                && text.charAt(text.length -1) != '.')
+                text += '.'
+            return text;
+        }
+        function setText(id, text){
+            let p = document.getElementById(id);
+            p.innerHTML = checkDotInTheEnd(text);
+        }
+    </script>
+</body>
+</html>
