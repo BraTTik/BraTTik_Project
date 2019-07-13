@@ -9,7 +9,15 @@
     <script>
         var arrayOfNumbers = [1,2,3,4,5,6,7];
 
-        document.body.appendChild(arrayToUl(arrayOfNumbers));
+        var ul = arrayToUl(arrayOfNumbers);
+        document.body.appendChild(ul);
+
+        ul.addEventListener('click', (event)=>{
+            let target = event.target.closest('li');
+            if (target.tagName == 'LI')
+                target.innerHTML = Number(target.innerHTML) + 1;
+        });
+        
 
         function arrayToUl(arr){
             let ul = createUl();
