@@ -7,17 +7,37 @@
 </head>
 <body>
     <script>
-        var arrayOfNumbers = [1,2,3,4,5,6,7];
+        var arrayOfNumbers = "Яблоки,Маргарин,Молоко".split(',');
 
         var ul = arrayToUl(arrayOfNumbers);
         document.body.appendChild(ul);
 
-        ul.addEventListener('click', (event)=>{
+        ul.addEventListener('click', editLi);
+
+        function editLi(event){
             let target = event.target.closest('li');
-            if (target.tagName == 'LI')
-                target.innerHTML = Number(target.innerHTML) + 1;
-        });
+            editLiText(target);
+        };
         
+
+        function editLiText(li){
+            ul.removeEventListener('click', editLi);
+            let input = createInput();
+            li.innerHTML = '';
+            li.appendChild(input);
+            input.addEventListener('keydown', setText);
+
+            function setText(event){
+                if(event.keyCode == 13){
+                    li.innerHTML = input.value;
+                    ul.addEventListener('click', editLi);
+                }
+            }
+        };
+
+        function createInput(){
+            return document.createElement('input');
+        };
 
         function arrayToUl(arr){
             let ul = createUl();
@@ -26,17 +46,17 @@
                 ul.appendChild(li);
             }
             return ul;
-        }
+        };
 
         function createUl(){
             let ul = document.createElement('ul');
             return ul;
-        }
+        };
         function createLi(text){
             let li = document.createElement('li');
             li.innerHTML = text;
             return li;
-        }
+        };
     </script>
 </body>
 </html>
