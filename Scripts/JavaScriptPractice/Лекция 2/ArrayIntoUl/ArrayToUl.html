@@ -23,6 +23,7 @@
         function editLiText(li){
             ul.removeEventListener('click', editLi);
             let input = createInput();
+            input.value = li.innerHTML;
             li.innerHTML = '';
             li.appendChild(input);
             input.addEventListener('keydown', setText);
