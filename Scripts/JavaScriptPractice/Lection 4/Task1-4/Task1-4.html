@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Задания 1-4 Лекция 4(Трепачёв)</title>
+</head>
+<body>
+    <p class = "editable">Параграф, который можно редактировать.</p>
+    <script>
+        
+        var editableElements = getElements('.editable');
+        //console.log(editableElements);
+        editableElements[0].addEventListener('click', editText);
+        
+        function editText(){
+            let input = createInput();
+            input.value = this.innerHTML;
+            this.innerHTML = '';
+            this.appendChild(input);
+            this.removeEventListener('click', editText);
+            input.addEventListener('blur', setText);
+            
+            function setText(){
+                this.parentElement.addEventListener('click', editText);
+                this.parentElement.innerHTML = this.value;
+            };
+        }
+
+        function createInput(){
+            let input = document.createElement('input');
+            return input;
+        }
+
+        function getElements(selector){
+            let elements = document.querySelectorAll(selector);
+            return elements;
+        }
+    </script>
+</body>
+</html>

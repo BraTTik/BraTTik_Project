@@ -6,13 +6,23 @@
     <title>ArrayToUl</title>
 </head>
 <body>
+    <ul id = 'list'></ul>
+    <input id = "item" type = "text">
+    <button id = "addItem">Добавить в список</button>
     <script>
         var arrayOfNumbers = "Яблоки,Маргарин,Молоко".split(',');
-
+        var addItemButton = getElementById('addItem');
         var ul = arrayToUl(arrayOfNumbers);
-        document.body.appendChild(ul);
 
         ul.addEventListener('click', editLi);
+        addItemButton.addEventListener('click', ()=>{
+            let item = getElementById('item');
+            let li = createLi(item.value);
+            ul.appendChild(li);
+            item.value = '';
+        });
+
+
 
         function editLi(event){
             let target = event.target.closest('li');
@@ -26,6 +36,7 @@
             input.value = li.innerHTML;
             li.innerHTML = '';
             li.appendChild(input);
+            
             input.addEventListener('keydown', setText);
 
             function setText(event){
@@ -41,13 +52,17 @@
         };
 
         function arrayToUl(arr){
-            let ul = createUl();
+            let ul = getElementById('list');
             for(let i = 0; i < arr.length; i++){
                 let li = createLi(arr[i]);
                 ul.appendChild(li);
             }
             return ul;
         };
+
+        function getElementById(selector){
+            return document.getElementById(selector);
+        }
 
         function createUl(){
             let ul = document.createElement('ul');
