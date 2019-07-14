@@ -3,38 +3,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href = "style.css" rel = "stylesheet">
     <title>Задания 1-4 Лекция 4(Трепачёв)</title>
 </head>
 <body>
-    <p class = "editable">Параграф, который можно редактировать.</p>
+    <div class = "list">
+        <ul class = "ul"></ul>
+        <input class = "newItem">
+    </div>
+    <div class = "list">
+        <ul class = "ul"></ul>
+        <input class = "newItem">
+    </div>
     <script>
+        var arrayOfItems = [["Яблоки","Маргарин","Молоко"],
+        ["Apples","Transfats","Milk"]];
+
+        var lists = document.querySelectorAll('.ul');
+        var newItemFields = document.querySelectorAll('.newItem');
+
+        startInitLists(lists, arrayOfItems, newItemFields);
+
         
-        var editableElements = getElements('.editable');
-        //console.log(editableElements);
-        editableElements[0].addEventListener('click', editText);
-        
-        function editText(){
-            let input = createInput();
-            input.value = this.innerHTML;
-            this.innerHTML = '';
-            this.appendChild(input);
-            this.removeEventListener('click', editText);
-            input.addEventListener('blur', setText);
-            
-            function setText(){
-                this.parentElement.addEventListener('click', editText);
-                this.parentElement.innerHTML = this.value;
-            };
+
+
+
+        function delElementOutOfList(list, elem){
+
+            list.removeChild(elem);
         }
 
-        function createInput(){
-            let input = document.createElement('input');
-            return input;
+        function addDelLink(elem){
+            elem.innerHTML += ' <a href = "#">&#10008;</a>';
+            elem.lastElementChild.addEventListener('click', function(event){
+                event.preventDefault();
+                elem.parentNode.removeChild(elem);
+            });
+        }
+        function startInitLists(lists, arr, itemFields){
+            for(let i = 0; i < lists.length; i++){
+                let items = initElemsOfList(lists[i], arr[i]);
+                    for(let j = 0; j < items.length; j++)
+                        addDelLink(items[j]);
+                initNewItemInList(lists[i], itemFields[i]);
+            }
         }
 
-        function getElements(selector){
-            let elements = document.querySelectorAll(selector);
-            return elements;
+
+
+        function initNewItemInList(list, item){
+            item.addEventListener('blur', function(){
+                let li = addItem(list, this.value);
+                addDelLink(li);
+                editElementText(li);
+                this.value = '';
+            });
+        }
+
+        function addItem(list, text){
+            let li = document.createElement('li');
+            li.innerHTML = text;
+            list.appendChild(li);
+
+            return li;
+        }
+
+        function initElemsOfList(list, arr){
+            let items = fillList(list, arr);
+            for(let i = 0; i < items.length; i++){
+                editElementText(items[i]);
+            }
+            return items;
+        }
+
+        function fillList(list, arr){
+            let items = [];
+            for(let i = 0; i < arr.length; i++){
+                let li = addItem(list, arr[i]);
+                items.push(li);
+            }
+            return items;
+        }
+
+        function editElementText(elem){
+            elem.addEventListener('click', function edit(){
+                let input = document.createElement('input');
+                input.value = this.firstChild.textContent;
+                this.innerHTML = '';
+                this.appendChild(input);
+
+                this.removeEventListener('click', edit);
+
+                let self = this;
+                input.addEventListener('blur', function(){
+                    self.innerHTML = this.value;
+                    addDelLink(self);
+                    self.addEventListener('click', edit);
+                });
+            });
         }
     </script>
 </body>

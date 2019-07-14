@@ -1,0 +1,22 @@
+.list{
+    width: 150px;
+    border:1px solid black;
+    padding: 10px;
+    margin-bottom:10px;
+}
+.list input{
+    width:100%;
+}
+.list li{
+    border-bottom: 1px solid rgba(83, 82, 82, 0.205);
+    margin:5px 0px;
+}
+.list a:any-link{
+    color:darkred;
+  text-decoration: none;
+    float:right;
+    display:none;
+}
+.list li:hover a{
+    display: inline;
+}
