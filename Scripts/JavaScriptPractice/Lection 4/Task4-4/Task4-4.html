@@ -19,6 +19,11 @@
             let nums = input.value.split(',');
             flag = false;
             for(let i = 0; i < nums.length; i++){
+                if(isNaN(nums[i])){
+                    input.value = '';
+                    input.placeholder = 'Введите только числа';
+                    return false;
+                }
                 if(!isNaN(nums[i]) && !isNaN(nums[i+1])){
                     flag = isPow(nums[i], nums[i+1]);
                 }
