@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title>Задача 4 лекции 4</title>
+</head>
+<body>
+    <input id = "powInput">
+    <script>
+        var powInput = document.getElementById('powInput');
+
+        powInput.addEventListener('blur', function(){
+            if(checkNumbersInInput(this)){
+                this.style.borderColor = 'green';
+            }else{
+                this.style.borderColor = 'red';
+            };
+        })
+
+        function checkNumbersInInput(input){
+            let nums = input.value.split(',');
+            flag = false;
+            for(let i = 0; i < nums.length; i++){
+                if(!isNaN(nums[i]) && !isNaN(nums[i+1])){
+                    flag = isPow(nums[i], nums[i+1]);
+                }
+            }
+            return flag;
+        }
+
+        function isPow(num1, num2){
+            return num1*num1 == num2;
+        }
+    </script>
+</body>
