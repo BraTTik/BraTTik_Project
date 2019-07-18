@@ -7,10 +7,12 @@
 </head>
 <body>
     <ul id = 'inputList'></ul>
+    <p id = 'result'></p>
     <input id = 'input'>
     <script>
         var inputList = document.getElementById('inputList');
         var input = document.getElementById('input');
+        var result = document.getElementById('result');
 
 
         input.addEventListener('blur', function(){
@@ -20,7 +22,29 @@
                 addElementInList(inputList, li);
             }
             this.value = '';
+            showSumOfNumbers(inputList, result);
         });
+
+        function showSumOfNumbers(list, element){
+            let sum = 0;
+            let nums = list.children;
+            for(let i = 0; i < nums.length; i++){
+                sum += Number(nums[i].innerHTML);
+            }
+            element.innerHTML = 'Cумма чисел равна ' + sum;
+        }
+
+        function checkNumbersInInput(input){
+            let nums = input.value.split(',');
+            for(let i = 0; i < nums.length; i++){
+                if(isNaN(nums[i])){
+                    input.value = '';
+                    input.placeholder = 'Введите только числа';
+                    return false;
+                }
+            }
+            return true;
+        }
 
 
         function createElement(type, text){
@@ -30,8 +54,10 @@
         }
         
         function getElements(input, splitter){
-            let text = input.value;
-            return text.split(splitter);
+            if(checkNumbersInInput(input)){
+                let text = input.value;
+                return text.split(splitter);
+            }
         }
 
         function addElementInList(list, element){
@@ -43,7 +69,6 @@
         function checkBlank(element){
             let text = element.innerHTML.trim();
             if(text.length == 0){
-                console.log(false);
                 return false;
             }else{
                 return true;
