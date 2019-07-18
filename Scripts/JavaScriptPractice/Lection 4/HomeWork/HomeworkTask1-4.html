@@ -8,7 +8,7 @@
 <body>
     <ul id = 'inputList'></ul>
     <p id = 'result'></p>
-    <input id = 'input'>
+    <input id = 'input' placeholder="Вводите числа через запятую">
     <script>
         var inputList = document.getElementById('inputList');
         var input = document.getElementById('input');
@@ -36,14 +36,13 @@
 
         function checkNumbersInInput(input){
             let nums = input.value.split(',');
+            let arrayOfNums = [];
             for(let i = 0; i < nums.length; i++){
-                if(isNaN(nums[i])){
-                    input.value = '';
-                    input.placeholder = 'Введите только числа';
-                    return false;
+                if(!isNaN(nums[i])){
+                    arrayOfNums.push(nums[i]);
                 }
             }
-            return true;
+            return arrayOfNums;
         }
 
 
@@ -53,11 +52,8 @@
             return element;
         }
         
-        function getElements(input, splitter){
-            if(checkNumbersInInput(input)){
-                let text = input.value;
-                return text.split(splitter);
-            }
+        function getElements(input){
+                return checkNumbersInInput(input);
         }
 
         function addElementInList(list, element){
