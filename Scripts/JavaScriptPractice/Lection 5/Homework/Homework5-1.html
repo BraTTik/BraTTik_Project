@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Домашнее задание</title>
+    <style>
+        table{
+            border:1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table></table>
+    <p id = "sum"></p>
+    <button id = "sumNumbers">Calculate sum</button>
+
+
+    <script>
+        var table = document.querySelector('table');
+        var calculateSumButton = document.getElementById('sumNumbers');
+        var result = document.getElementById('sum');
+
+        initTable(table, 3, 4, calculateSumButton, result);
+
+
+        function initTable(table, rows, columns, button, result){
+            makeTable(table, rows, rows, result);
+            button.addEventListener('click', function(){
+                setText(result, calculateSumInTable(table));
+            });
+        }
+        
+
+        function setText(elem, text){
+            elem.innerHTML = text;
+        }
+
+        function calculateSumInTable(table){
+            var nums = table.querySelectorAll('td');
+            var sum = 0;
+            for(let i = 0; i < nums.length; i++){
+                sum += Number(nums[i].innerHTML);
+            }
+
+            return sum;
+        }
+
+        function recalculate(table, result){
+            setText(result, calculateSumInTable(table));
+        }
+
+        function makeTable(table, rows, columns, result){
+            for(let i = 0; i < rows; i++){
+                fillTable(table, columns, result);
+            }
+        }
+
+        function fillTable(table, columns, result){
+            var tr = document.createElement('tr');
+            for(let i = 0; i < columns; i++){
+                createTd(table, tr, randomInt(1, 100), result);
+                table.appendChild(tr);
+            }
+        }
+
+        function createTd(table, tr, text, result){
+            var td = document.createElement('td');
+            td.innerHTML = text;
+            tr.appendChild(td);
+            td.addEventListener('click', function(){
+                this.innerHTML = Number(this.innerHTML) + 1;
+                recalculate(table, result)
+            })
+
+            return td;
+        }
+
+
+        function randomInt(min, max){
+            return Math.round(Math.random()*(max - min) + min);
+        }
+    </script>
+
+</body>
+</html>
