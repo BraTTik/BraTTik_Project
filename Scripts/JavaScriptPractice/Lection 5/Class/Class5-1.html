@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Классная работа 5-1</title>
+    <style>
+        table{
+            border:4px double black;
+            border-collapse: collapse;
+            margin-bottom:10px;
+        }
+        td{
+            border:1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <table id = "products"></table>
+    <input id = "name">
+    <input id = "price">
+    <input id = "quantity">
+    <input id = "addButton" type = "button" value = "add product">
+    <p id = "result"></p>
+    <script>
+        var table = document.getElementById('products');
+        var result = document.getElementById('result');
+        var productName = document.getElementById('name');
+        var productPrice = document.getElementById('price');
+        var productQuantity = document.getElementById('quantity');
+        var addButton = document.getElementById('addButton');
+
+        initProductAddition(addButton, table, result, productName, productPrice, productQuantity);
+
+
+
+        function initProductAddition(addButton, table, result, productName, productPrice, productQuantity){
+            addButton.addEventListener('click', function(){
+                addProduct(table, {name: productName.value, price: Number(productPrice.value), quantity: Number(productQuantity.value)}, result);
+                setText(result, sumOfProducts(table));
+            });
+        }
+
+
+
+        function setText(elem, text){
+            elem.innerHTML = text;
+        }
+
+        function createTd(parent, text, editable, className, table, result){
+            var td = document.createElement('td');
+            td.innerHTML = text;
+            parent.appendChild(td);
+            if(editable){
+                setElementEditable(td, table, result);
+            }
+            if(className != undefined){
+                td.classList.add(className);
+            }
+        }
+
+        function setElementEditable(elem, table, result){
+            elem.addEventListener('click', function edit(){
+                let input = document.createElement('input');
+                input.value = this.firstChild.textContent;
+                this.innerHTML = '';
+                this.appendChild(input);
+
+                this.removeEventListener('click', edit);
+
+                let self = this;
+                input.addEventListener('blur', function(){
+                    self.innerHTML = this.value;
+                    self.addEventListener('click', edit);
+                    recalculate(self.parentElement, table, result);
+                });
+            });
+        }
+
+        function createDeleteTd(table, tr){
+            var td = document.createElement('td');
+            var del = document.createElement('a');
+
+            del.innerHTML = 'delete';
+            del.href = '#';
+            td.appendChild(del);
+
+            tr.appendChild(td);
+            
+            del.addEventListener('click', function(){
+                table.removeChild(tr);
+            });
+        }
+
+        function addProduct(table, product, result){
+                var tr = document.createElement('tr');
+
+                createTd(tr, product.name, true, 'name', table, result);
+                createTd(tr, product.price, true, 'price', table, result);
+                createTd(tr, product.quantity, true, 'quantity', table, result);
+                createTd(tr, product.price*product.quantity, false, 'cost', table, result);
+                createDeleteTd(table, tr);
+
+                table.appendChild(tr);
+        }
+
+        function sumOfProducts(table){
+            let costs = table.querySelectorAll('.cost');
+            let sum = 0;
+            for(let i = 0; i < costs.length; i++){
+                sum += Number(costs[i].innerHTML);
+            }
+            return sum;
+        }
+
+        function recalculate(tr, table, result){
+            var price = tr.querySelector('.price');
+            var quantity = tr.querySelector('.quantity');
+            var cost = tr.querySelector('.cost');
+            
+
+            cost.innerHTML = price.innerHTML*quantity.innerHTML;
+
+            result.innerHTML = sumOfProducts(table);
+        }
+    </script>
+</body>
+</html>
