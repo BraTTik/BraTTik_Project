@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Экранная клавиатура</title>
+    <style>
+        #screenKeyboard{
+            text-align: center;
+        }
+        .key{
+            margin:3px;
+            width:30px;
+        }
+        .spaceKey{
+            width:150px;
+        }
+        .shiftKey{
+            width:50px;
+        }
+        .Backspace{
+            width:80px;
+        }
+        #shiftKeyboard{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id = "screenKeyboard">
+        <input id = "text">
+        <div id = "keyboard"></div>
+        <div id = "shiftKeyboard"></div>
+    </div>
+    <script>
+        var input = document.getElementById('text');
+        var keyboard = document.getElementById('keyboard');
+        var shiftKeyboard = document.getElementById('shiftKeyboard');
+        //var shift = createShiftButton(keyboard, shiftKeyboard);
+        var keys = {
+                    nums: '1 2 3 4 5 6 7 8 9 0 - ='.split(' '), 
+                    firstKeys: 'q w e r t y u i o p [ ]'.split(' '),
+                    secondKeys: 'a s d f g h j k l ; \''.split(' '),
+                    thirdKeys: 'z x c v b n m \, \. \/'.split(' ')
+        };
+        var shiftKeys = {
+                    nums: '! @ # $ % ^ & * ( ) _ +'.split(' '), 
+                    firstKeys: 'Q W E R T Y U I O P { }'.split(' '),
+                    secondKeys: 'A S D F G H J K L L : \"'.split(' '),
+                    thirdKeys: 'Z X C V B N M < > ?'.split(' ')
+        };
+        
+        initKeyboard(keyboard, shiftKeyboard, input, keys);
+        initKeyboard(shiftKeyboard, keyboard, input, shiftKeys);
+
+        function initKeyboard(keyboard, shiftKeyboard, input,  keys){
+            makeFirstRow(keyboard,  input, keys.nums);
+            newLine(keyboard);
+            makeRow(keyboard, input, keys.firstKeys);
+            newLine(keyboard);
+            makeRow(keyboard, input, keys.secondKeys);
+            newLine(keyboard);
+            makeRow(keyboard, input, keys.thirdKeys);
+            newLine(keyboard);
+            createShiftButton(keyboard, shiftKeyboard);
+            createSpaceButton(keyboard, input);
+            newLine(keyboard);
+        }
+
+        function makeRow(keyboard, input, values){
+            for(let i = 0; i < values.length; i++){
+                addButton(keyboard, input, values[i]);
+            }
+        }
+
+        function makeFirstRow(keyboard, input, nums){
+            makeRow(keyboard, input, nums);
+            createBackspaceButton(keyboard, input);
+        }
+        
+        function addButton(keyboard, input, value){
+            var button = createButton(value);
+            keyboard.appendChild(button);
+            button.addEventListener('click', function(){
+                input.value += this.value;
+            });
+        }
+
+        function createBackspaceButton(keyboard, input){
+            var button = createButton('Backspace');
+            button.classList.add('Backspace');
+            keyboard.appendChild(button);
+            button.addEventListener('click', function(){
+                input.value = input.value.slice(0, -1);
+            });
+        }
+
+        function createShiftButton(keyboard, shiftKeyboard){
+            var shift = createButton('Shift');
+            keyboard.appendChild(shift);
+            shift.classList.add('shiftKey');
+            shift.addEventListener('click', function(){
+                var flag = true;
+                if(flag){
+                    shiftKeyboard.style.display = 'block';
+                    keyboard.style.display = 'none';
+                    flag = false;
+                }else{
+                    shiftKeyboard.style.display = 'none';
+                    keyboard.style.display = 'block';
+                    flag = true;
+                }
+            });
+
+            return shift;
+        }
+
+        function createSpaceButton(keyboard, input){
+            let space = createButton('Space');
+            keyboard.appendChild(space);
+            space.classList.add('spaceKey');
+            space.addEventListener('click', function(){
+                input.value += ' ';
+            });
+        }
+
+        function clearBoard(keyboard){
+            var child = keyboard.children;
+            while(child.length != 0){
+                keyboard.removeChild(child[child.length-1]);
+            }
+        }
+
+        function newLine(keyboard){
+            let br = document.createElement('br');
+            keyboard.appendChild(br);
+        }
+
+        function createButton(value){
+            var button = document.createElement('input');
+            button.type = 'button';
+            button.value = value;
+            button.classList.add('key');
+
+            return button;
+        }
+    </script>
+</body>
+</html>
