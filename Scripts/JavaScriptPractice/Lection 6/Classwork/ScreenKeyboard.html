@@ -36,7 +36,6 @@
         var input = document.getElementById('text');
         var keyboard = document.getElementById('keyboard');
         var shiftKeyboard = document.getElementById('shiftKeyboard');
-        //var shift = createShiftButton(keyboard, shiftKeyboard);
         var keys = {
                     nums: '1 2 3 4 5 6 7 8 9 0 - ='.split(' '), 
                     firstKeys: 'q w e r t y u i o p [ ]'.split(' '),
@@ -100,16 +99,8 @@
             keyboard.appendChild(shift);
             shift.classList.add('shiftKey');
             shift.addEventListener('click', function(){
-                var flag = true;
-                if(flag){
                     shiftKeyboard.style.display = 'block';
                     keyboard.style.display = 'none';
-                    flag = false;
-                }else{
-                    shiftKeyboard.style.display = 'none';
-                    keyboard.style.display = 'block';
-                    flag = true;
-                }
             });
 
             return shift;
