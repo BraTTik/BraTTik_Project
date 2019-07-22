@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Градусы Цельсия в Фаренгейты</title>
+</head>
+<body>
+    <input id = 'gradus' placeholder="Градусы Цельсия">
+    <input id = 'gradus2'placeholder="Градусы Фаренгейта" style = 'display: none'>
+    <button id = 'switch'>Switch</button>
+    <p id = 'result'></p>
+    <script>
+        var gradus = document.getElementById('gradus');
+        var gradus2 = document.getElementById('gradus2');
+        var result = document.getElementById('result');
+        var switchButton = document.getElementById('switch');
+
+        initCalculator(gradus, gradus2, result, calculateCelciToFahrenheit, calculateFahrenheitToCelci, switchButton);
+
+        function initCalculator(gradus, gradus2, result, calculateFunc1, calculateFunc2, switchButton){
+            var flag = true;
+            gradus.addEventListener('change', function (){
+                showGradus(gradus, result, calculateFunc1);
+            });
+            gradus2.addEventListener('change', function(){
+                showGradus(gradus2, result, calculateFunc2)
+            });
+            switchButton.addEventListener('click', function(){
+                if(flag){
+                    flag = false;
+
+                    gradus.style.display = 'none';
+                    gradus2.style.display = 'inline';
+                }else{
+                    flag = true;
+
+                    gradus2.style.display = 'none';
+                    gradus.style.display = 'inline';
+                }
+            });
+        }
+
+        
+
+        function showGradus(input, result, calculateFunc){
+            result.innerHTML = calculateFunc(input.value);
+        }
+
+        function calculateCelciToFahrenheit(celc){
+            return (celc*9/5+32).toFixed(1);
+        }
+        function calculateFahrenheitToCelci(fahr){
+            return ((fahr-32)*5/9).toFixed(1);
+        }
+    
+    </script>
+</body>
+</html>
