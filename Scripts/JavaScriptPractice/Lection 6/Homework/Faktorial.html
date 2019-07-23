@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Факториал</title>
+</head>
+<body>
+    <input id = 'input' placeholder="Введите число для вычисления">
+    <p id = 'result'></p>
+    <script>
+        var input = document.getElementById('input');
+        var result = document.getElementById('result');
+
+        input.addEventListener('change', function(){
+            showResult(input, result, calculateFaktorial);
+        });
+
+
+        function showResult(input, result, calculateFunc){
+            result.innerHTML = calculateFunc(input.value);
+        }
+        function calculateFaktorial(num){
+            if(num == 0)
+                return num;
+            let result = 1;
+            for(let i = 1; i <= num; i++){
+                result *= i;
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>
