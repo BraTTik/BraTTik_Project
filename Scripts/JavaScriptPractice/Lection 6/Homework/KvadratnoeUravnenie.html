@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Введите коэфиценты квадратного уравнения вида <b>ax&sup2; + bx + c = 0</b></p>
+    <input id = 'a' placeholder="a">
+    <input id = 'b' placeholder="b">
+    <input id = 'c' placeholder="c">
+    <button id = 'resultButton'>Получить решение</button>
+    <p id = 'result'></p>
+    <script>
+        var a = document.getElementById('a');
+        var b = document.getElementById('b');
+        var c = document.getElementById('c');
+        var resultButton = document.getElementById('resultButton');
+        var result = document.getElementById('result');
+
+        initCalculator(a, b, c, result, resultButton, calculateFunc);
+
+        function initCalculator(a, b, c, result, resultButton, calculateFunc){
+            resultButton.addEventListener('click', function(){
+                showResult(a.value, b.value, c.value, result, calculateFunc)
+                a.value = '';
+                b.value = '';
+                c.value = '';
+            });
+        }
+
+        function showResult(a, b, c, result, calculateFunc){
+            result.innerHTML = calculateFunc(a, b, c);
+        }
+
+        function calculateFunc(a, b, c){
+            let aNum = a || 0;
+            let bNum = b || 0;
+            let cNum = c || 0;
+            let d = bNum*bNum - 4*aNum*cNum;
+            let x1;
+            let x2;
+            if(d >= 0){
+                x1 = (((-bNum) + Math.sqrt(d)) / (2*aNum)).toFixed(2);
+                x2 = (((-bNum) - Math.sqrt(d)) / (2*aNum)).toFixed(2);
+            }else if(d < 0){
+                return 'Решения нет';
+            }
+            return 'x<sub>1</sub> = ' + x1 + ' x<sub>2</sub> = ' + x2;
+        }
+    </script>
+</body>
+</html>
