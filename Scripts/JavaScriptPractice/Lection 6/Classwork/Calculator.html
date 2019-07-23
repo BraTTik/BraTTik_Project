@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Калькулятор</title>
+    <style>
+        #calculator{
+            width:130px;
+            border: 1px solid black;
+        }
+        #keyboard{
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        #text{
+            width:100%;
+            font-size: 18px;
+        }
+        .key{
+            font-size:18px;
+            width:25%;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id = "calculator">
+        <input id = "text" readonly>
+        <div id = "keyboard"></div>
+    </div>
+
+    <script>
+        var input = document.getElementById('text');
+        var keyboard = document.getElementById('keyboard');
+        var keys = '7 8 9 + 4 5 6 - 1 2 3 * 0 = C /'.split(' ');
+
+        initCalculator(keyboard, input, keys);
+
+        function initCalculator(keyboard, input, keys){
+            for(let i = 1; i < keys.length+1; i++){
+                let button = createButton(keys[i-1])
+                addButton(button);
+                if(keys[i-1] == '='){
+                    button.addEventListener('click', function(){
+                        input.value = eval(input.value);
+                    });
+                }else if(keys[i-1] == 'C'){
+                    button.addEventListener('click', function(){
+                        input.value = '';
+                    });
+                }else{
+                    button.addEventListener('click', function(){
+                        input.value += this.value;
+                    });
+                }
+            }
+        }
+        
+    
+        function createButton(value){
+            var button = document.createElement('input');
+            button.type = 'button';
+            button.value = value;
+            button.classList.add('key');
+            if(value == '='){
+                button.classList.add('ravno');
+            }
+
+            return button;
+        }
+        function addButton(button){
+            //var button = createButton(value);
+            keyboard.appendChild(button);
+        }
+    </script>
+</body>
+</html>
