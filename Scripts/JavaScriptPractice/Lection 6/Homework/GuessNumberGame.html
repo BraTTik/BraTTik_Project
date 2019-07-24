@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Угадай число</title>
+    <style>
+        #restartButton{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Угадай какое число я загадал</h1>
+    <input id = "guess"><span id = 'timer'></span>
+    <p id = "tip"></p>
+    <button id = "restartButton">Начать заново?</button>
+
+    <script>
+        var guess = document.getElementById('guess');
+        var tip = document.getElementById('tip');
+        var restartButton = document.getElementById('restartButton');
+        var timer = document.getElementById('timer');
+
+        var newGame = startNewGame(guess,  tip, randomNumber, restartButton, timer);
+
+        var game = newGame();
+
+        restartButton.addEventListener('click', function(){
+            game = newGame();
+            this.style.display = 'none';
+        });
+
+
+        function startNewGame(input,  par, randomNumber, restartButton, timer){
+            let num;
+            let guess = input;
+            let tip = par;
+            let flag = false;
+            let tillEndGame = timer;
+            return function(){        
+                let time = 20;
+                num = randomNumber(1, 100);
+                console.log(num);
+                tip.innerHTML = 'Игра началась!';
+                window.timerID = setInterval(function(){
+                    time--;
+                    tillEndGame.innerHTML = ' До конца игры осталось ' + time + ' сек';
+                    if(time == 0){
+                        gameOver(flag, guess, restartButton, tip);
+                        tillEndGame.innerHTML = ' Время окончено!';
+                        clearInterval(window.timerID);
+                    }
+                }, 1000);
+
+                guess.addEventListener('keydown', check);
+            }
+            function check(event){
+                if(event.keyCode == 13){
+                    let guessNum = guess.value;
+                    guess.placeholder = guessNum;
+                    guess.value = '';
+                    flag = giveGuess(num, guessNum, tip);
+                    if(flag){
+                        guess.removeEventListener('keydown', check);
+                        gameOver(flag, guess, restartButton, tip);
+                    }
+                }
+            }
+            function gameOver(flag, guess, restartButton, tip){
+                if(flag){
+                    restartButton.style.display = 'block';
+                    clearInterval(window.timerID);
+                }else{
+                    tip.innerHTML = 'Вы не успели вовремя';
+                    restartButton.style.display = 'block';
+                    guess.removeEventListener('keydown', check);
+                    clearInterval(window.timerID);
+                }
+            }
+        }
+
+
+
+        function giveGuess(answer, guess, tip){
+            if(answer < guess){
+                tip.innerHTML = 'Меньше';
+                return false;
+            }
+            if(answer > guess){
+                tip.innerHTML = 'Больше';
+                return false;
+            }
+            if(answer == guess){
+                tip.innerHTML = 'Угадал!';
+                return true;
+            }
+        }
+        
+        function randomNumber(min, max){
+            return Math.round(Math.random()*(max - min) + min);
+        }
+    </script>
+</body>
+</html>
