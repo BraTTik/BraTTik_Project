@@ -5,44 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Угадай число</title>
     <style>
-        #restartButton{
-            display: none;
+        #gameField{
+            width:400px;
+            border:3px double black;
+            margin:0px auto;
+            padding:20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1>Угадай какое число я загадал</h1>
-    <input id = "guess"><span id = 'timer'></span>
-    <p id = "tip"></p>
-    <button id = "restartButton">Начать заново?</button>
+    <div id = "GameField">
+        <h2>Угадай какое число я загадал</h2>
+        <p>Выбери сложность: 
+            <input type = "radio" name = "difficult" id = "easy" value = "60" checked>
+            <label for = "easy">Просто</label>
+            
+            <input type = "radio" name = "difficult" id = "medium" value = "30">
+            <label for = "medium">Средне</label>
 
+            <input type = "radio" name = "difficult" id = "hard" value = "20">
+            <label for = "hard">Сложно</label><br>
+        </p>
+
+        <button id = "startButton">Начать</button>
+    </div>
     <script>
-        var guess = document.getElementById('guess');
-        var tip = document.getElementById('tip');
-        var restartButton = document.getElementById('restartButton');
-        var timer = document.getElementById('timer');
+        var gameField = document.getElementById('GameField');
+        var startButton = document.getElementById('startButton');
+        var difficult = gameField.getElementsByTagName('input');
 
-        var newGame = startNewGame(guess,  tip, randomNumber, restartButton, timer);
 
-        var game = newGame();
 
-        restartButton.addEventListener('click', function(){
-            game = newGame();
+        startButton.addEventListener('click', function(){
+            var newGame = startNewGame(gameField, difficult);
+            window.game = newGame();
             this.style.display = 'none';
         });
+        
 
 
-        function startNewGame(input,  par, randomNumber, restartButton, timer){
+        function startNewGame(gameField, difficult){
             let num;
-            let guess = input;
-            let tip = par;
+            let guess = addGameInterface(gameField, 'input');
+            let tillEndGame = addGameInterface(gameField, 'p');
+            let tip = addGameInterface(gameField, 'p');
+            let restartButton = addGameInterface(gameField, 'button', 'Начать заново');
+            console.log(restartButton);
+            initRestartButton(restartButton);
             let flag = false;
-            let tillEndGame = timer;
-            return function(){        
-                let time = 20;
+
+            return function(){  
                 num = randomNumber(1, 100);
-                console.log(num);
                 tip.innerHTML = 'Игра началась!';
+                startTimer(getDifficult(difficult));
+                guess.addEventListener('keydown', check);
+            }
+
+
+            function startTimer(sec){
+                let time = Number(sec);
                 window.timerID = setInterval(function(){
                     time--;
                     tillEndGame.innerHTML = ' До конца игры осталось ' + time + ' сек';
@@ -52,8 +74,6 @@
                         clearInterval(window.timerID);
                     }
                 }, 1000);
-
-                guess.addEventListener('keydown', check);
             }
             function check(event){
                 if(event.keyCode == 13){
@@ -69,18 +89,41 @@
             }
             function gameOver(flag, guess, restartButton, tip){
                 if(flag){
-                    restartButton.style.display = 'block';
+                    restartButton.style.display = 'inline';
                     clearInterval(window.timerID);
                 }else{
                     tip.innerHTML = 'Вы не успели вовремя';
-                    restartButton.style.display = 'block';
+                    restartButton.style.display = 'inline';
                     guess.removeEventListener('keydown', check);
                     clearInterval(window.timerID);
                 }
             }
         }
 
+        function getDifficult(difficults){
+            for(let i = 0; i < difficults.length; i++){
+                if(difficults[i].checked){
+                    return difficults[i].value;
+                }
+            }
+        }
 
+        function initRestartButton(button){
+            button.style.display = 'none';
+            button.addEventListener('click', function(){
+                window.game = newGame();
+                this.style.display = 'none';
+            });
+        }
+
+        function addGameInterface(gameField, elem, text){
+            let element = document.createElement(elem);
+            gameField.appendChild(element);
+            element.innerHTML = text;
+            if(text == undefined)
+                element.innerHTML = '';
+            return element;
+        }
 
         function giveGuess(answer, guess, tip){
             if(answer < guess){
