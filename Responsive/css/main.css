@@ -1,0 +1,42 @@
+.content {
+  display: flex;
+  flex-wrap: wrap; }
+
+.block {
+  width: 32%;
+  padding: 3%;
+  border: 1px solid green;
+  margin-bottom: 30px; }
+  .block img {
+    width: 100%; }
+  .block:not(:nth-child(3n)) {
+    margin-right: 2%; }
+
+@media screen and (max-width: 900px) {
+  .block {
+    width: 100%;
+    margin-right: 0; } }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  overflow-x: hidden; }
+
+#wrapper {
+  width: 200px;
+  height: 50px;
+  font-size: 1rem;
+  background-color: #fff;
+  border: 1px solid red;
+  margin: 30px;
+  padding: 20px 30px;
+  text-align: center;
+  text-indent: 2000px;
+  transition: all 1s ease;
+  white-space: nowrap; }
+  #wrapper:hover {
+    text-indent: 0; }
+
+/*# sourceMappingURL=main.css.map */

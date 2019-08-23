@@ -1,0 +1,18 @@
+.content
+    display: flex
+    flex-wrap: wrap
+    
+.block
+    width: 32%
+    padding: 3%
+    border: 1px solid green
+    margin-bottom: 30px
+    img
+        width: 100%
+    &:not(:nth-child(3n))
+        margin-right: 2%
+
+@media screen and (max-width: 900px)
+    .block
+        width: 100%
+        margin-right: 0
