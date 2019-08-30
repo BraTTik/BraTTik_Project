@@ -1,0 +1,13 @@
+@mixin menu($menuItemColor, $menuItemFont)
+    ul
+        display: flex
+        justify-content: space-between
+        align-items: baseline
+        list-style: none inside
+        a:any-link
+            display: block
+            color: $menuItemColor
+            font-family: $menuItemFont
+            text-decoration: none
+            text-transform: uppercase
+            padding: 0 0.5em

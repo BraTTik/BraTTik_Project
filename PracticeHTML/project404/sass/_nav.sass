@@ -1,0 +1,115 @@
+@import "_horizontalMenu"
+nav
+    width: 100vw
+    @include flex(space-between)
+    align-items: center
+    padding: 1% 5%
+    background-color: $navColor
+    .logo-menu
+        @include flex(space-between)
+        align-items: stretch
+        .menu
+            @include menu($mainColor, $mainFont)
+            align-self: center
+            font-size: 14rem
+            li:not(:last-child)
+                border-right: 1px solid #ffffff
+            li:last-child a
+                text-transform: none
+            sup
+                color: $supColor
+                font-size: 10rem
+        .logo
+            font-size: 14rem
+            width: 156rem
+            height: 36rem
+            margin-right: 20rem
+
+    .user-menu
+        @include flex(space-between)
+        align-items: stretch
+        .search-block
+            @include flex(flex-start)
+            .search-icon, .search-input
+                box-sizing: content-box
+                font-size: 18rem
+                padding-left: 5%
+                padding-top: 3rem
+                padding-bottom: 3rem
+            .search-input
+                width: 20vw
+                border: none
+                border-top-right-radius: 3px
+                border-bottom-right-radius: 3px
+                outline: transparent
+            .search-icon
+                width: 3vw
+                align-self: stretch
+                background-color: #ffffff
+                flex: none
+                background-color: #ffffff
+                border-top-left-radius: 5px
+                border-bottom-left-radius: 5px
+                img
+                    width: 100%
+        .favorite-block, .user-block, .cart-block
+            width: 30rem
+            margin: 0 7rem
+        .favorite-block a
+            @extend %link-button
+            &:any-link
+                background: url('../img/favourite.png') no-repeat
+                background-position: center
+                background-size: contain
+            &:hover
+                background: url('../img/favourite-hover.png') no-repeat
+                background-position: center
+                background-size: contain
+        .user-block a
+            @extend %link-button
+            &:any-link
+                background: url('../img/profile.png') no-repeat
+                background-position: center
+                background-size: contain
+            &:hover
+                background: url('../img/profile-hover.png') no-repeat
+                background-position: center
+                background-size: contain
+        .cart-block
+            @extend %link-button
+            align-self: center
+            a:any-link
+                font-size: 20rem
+                font-family: $mainFont
+                font-weight: bold
+                text-transform: uppercase
+                text-decoration: none
+                color: #ffffff
+            a:hover
+                color: $mainColor
+@media screen and (max-width: 1070px)
+    nav
+        flex-direction: column-reverse
+        align-items: stretch
+        .user-menu
+            justify-content: flex-end
+            .search-block
+                margin-bottom: 5rem
+                .search-input
+                    width: 50vw
+@media screen and (max-width: 640px)
+    nav
+        .logo-menu
+            justify-content: stretch
+            .menu
+                flex-grow: 2
+                ul
+                    font-size: 18rem
+                    flex-direction: column
+                    align-items: center
+                    li:not(:last-child)
+                        border: none
+                        border-bottom: 1px solid #ffffff
+                        padding: 5rem
+
+
