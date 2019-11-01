@@ -1,0 +1,14 @@
+table {
+  border-collapse: none;
+  min-height: 200px; }
+  table th, table td {
+    border-top: 2px solid #ebebeb;
+    border-left: 2px solid #ebebeb;
+    border-bottom: 2px solid #858585;
+    border-right: 2px solid #858585;
+    padding: 5px;
+    font-size: 1rem;
+    min-width: 100px;
+    text-align: center; }
+
+/*# sourceMappingURL=style.css.map */

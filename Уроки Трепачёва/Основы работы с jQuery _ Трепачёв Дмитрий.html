@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://code.mu/books/javascript/jquery/osnovy-raboty-s-jquery.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>Основы работы с jQuery | Трепачёв Дмитрий</title>
+		
+		<script type="text/javascript" async="" src="./Основы работы с jQuery _ Трепачёв Дмитрий_files/watch.js.Без названия"></script><script src="./Основы работы с jQuery _ Трепачёв Дмитрий_files/jquery.min.js.Без названия"></script>
+		<script src="./Основы работы с jQuery _ Трепачёв Дмитрий_files/activator.js.Без названия"></script>
+		
+		<link rel="stylesheet" href="./Основы работы с jQuery _ Трепачёв Дмитрий_files/bootstrap.css">
+		<script src="./Основы работы с jQuery _ Трепачёв Дмитрий_files/bootstrap.min.js.Без названия"></script>
+		
+		<link rel="stylesheet" href="./Основы работы с jQuery _ Трепачёв Дмитрий_files/layout.css">
+		<link rel="stylesheet" href="./Основы работы с jQuery _ Трепачёв Дмитрий_files/styles.css">
+		<link rel="stylesheet" href="./Основы работы с jQuery _ Трепачёв Дмитрий_files/classes.css">
+		
+		<meta name="description" content="В уроке рассказывается об основах работы с jQuery для новичков.">
+		<link href="http://code.mu/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+		<script src="./Основы работы с jQuery _ Трепачёв Дмитрий_files/css.js.Без названия"></script>
+		<script src="./Основы работы с jQuery _ Трепачёв Дмитрий_files/answers.js.Без названия"></script>
+		<script src="./Основы работы с jQuery _ Трепачёв Дмитрий_files/scripts.js.Без названия"></script>
+		<script src="./Основы работы с jQuery _ Трепачёв Дмитрий_files/mr-koder.js.Без названия"></script>
+		
+		<link rel="stylesheet" href="./Основы работы с jQuery _ Трепачёв Дмитрий_files/prism.css">
+		<meta name="google-site-verification" content="Af0TM2OrwIEtjoQXxYz2-1C-21E1m7DB23_kWpE9sLg">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<div class="top">
+					<div class="top-left"><img data-module="mr-koder" data-behavior="img" src="./Основы работы с jQuery _ Трепачёв Дмитрий_files/relax.png" style="display: inline-block;"></div>
+					<div class="top-right">Трепачёв Д.П. © 2012-2019 г.</div>
+					<div class="top-center">
+						<!--
+						<a target="_blank" href="http://phphtml.net">
+							Внимание! В связи с высоким спросом
+							<span style="color: red;">1-го ноября цены на курсы вырастут в 2 раза</span><br>
+							Спешите: записаться по старым ценам! &rarr;
+						</a>
+						-->
+						<a target="_blank" href="http://phphtml.net/">
+							Запись на курсы по HTML, CSS, JavaScript, PHP, фреймворкам и CMS,<br>
+							<b>а также</b>: помощь в поиске работы и заказов, стажировка на реальных проектах →
+							<!--
+							<br>
+							<span style="color: red;">Акция:</span> до 1-го марта <span style="color: red;">25%</span>
+							скидка на тариф Практик &rarr;
+							-->
+						</a>
+					</div>
+				</div>
+				<div class="header">
+					<div class="top-menu">
+						<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="http://code.mu/">theory.phphtml.net</a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="dropdown" data-module="activator" data-activate="" data-activate-folder="/css/, /pseudo/, /html/, /attr/, /php/, /sql/, /javascript/, /jquery/">
+					<a href="http://code.mu/books/javascript/jquery/osnovy-raboty-s-jquery.html#" class="dropdown-toggle" data-toggle="dropdown">Справочники <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="http://code.mu/html/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="/html/, /attr/">Справочник по тегам и атрибутам HTML5</a></li>
+						<li><a href="http://code.mu/css/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Справочник по свойствам CSS3</a></li>	
+						<li><a href="http://code.mu/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Справочник по методам JavaScript</a></li>	
+						<li><a href="http://code.mu/jquery/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Справочник по методам jQuery</a></li>	
+						<li><a href="http://code.mu/canvas/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Справочник по работе с Canvas</a></li>	
+						<li><a href="http://code.mu/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder"="">Справочник по функциям PHP</a></li>	
+						<li><a href="http://code.mu/sql/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Справочник по командам MySQL</a></li>	
+					</ul>
+				</li>
+				<li class="dropdown active" data-module="activator" data-activate="" data-activate-folder="/books/">
+					<a href="http://code.mu/books/javascript/jquery/osnovy-raboty-s-jquery.html#" class="dropdown-toggle" data-toggle="dropdown">Учебники <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="http://code.mu/books/css/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Учебник HTML+CSS для новичков</a></li>
+						<li class="active"><a href="http://code.mu/books/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Учебник JavaScript+jQuery для новичков</a></li>
+						<li><a href="http://code.mu/books/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Учебник PHP+SQL для новичков</a></li>
+						<li><a href="http://code.mu/books/advanced/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Фреймворки JavaScript</a></li>
+						<li><a href="http://code.mu/books/advanced/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Фреймворки PHP, парсинг</a></li>
+					</ul>
+				</li>
+				<li class="dropdown" data-module="activator" data-activate="" data-activate-folder="/tasks/">
+					<a href="http://code.mu/books/javascript/jquery/osnovy-raboty-s-jquery.html#" class="dropdown-toggle" data-toggle="dropdown">Задачники <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="http://code.mu/tasks/css/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Задачник HTML+CSS с нуля</a></li>
+						<li><a href="http://code.mu/tasks/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Задачник JavaScript+jQuery с нуля</a></li>	
+						<li><a href="http://code.mu/tasks/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Задачник PHP+SQL с нуля</a></li>	
+						<li><a href="http://code.mu/tasks/advanced/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Задачник по фреймворкам JavaScript</a></li>
+						<li><a href="http://code.mu/tasks/advanced/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Задачник по фреймворкам PHP, парсингу</a></li>
+						<li class="divider"></li>
+						<li><a href="http://vk.com/zadachi_css" target="_blank">Занимательные задачи HTML+CSS →</a></li>
+						<li><a href="http://vk.com/zadachi_javascript_jquery" target="_blank">Занимательные задачи JavaScript+jQuery →</a></li>
+						<li><a href="http://vk.com/zadachi_php" target="_blank">Занимательные задачи PHP →</a></li>
+						<li><a href="http://regular.phphtml.net/" target="_blank">Занимательные регулярки PHP →</a></li>
+					</ul>
+				</li>
+				<li class="dropdown" data-module="activator" data-activate="" data-activate-folder="/webinars/">
+					<a href="http://code.mu/books/javascript/jquery/osnovy-raboty-s-jquery.html#" class="dropdown-toggle" data-toggle="dropdown">Вебинары<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="http://code.mu/webinars/css/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Бесплатные вебинары по HTML+CSS</a></li>
+						<li><a href="http://code.mu/webinars/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Бесплатные вебинары по JavaScript</a></li>
+						<li><a href="http://code.mu/webinars/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Бесплатные вебинары по PHP</a></li>
+					</ul>
+				</li>
+				<!--
+				<li class="dropdown" data-module="activator" data-activate data-activate-folder="/video/">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Видео<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/video/css/" data-module="activator" data-activate data-activate-parent data-activate-folder>Видео HTML+CSS</a></li>
+						<li><a href="/video/javascript/" data-module="activator" data-activate data-activate-parent data-activate-folder>Видео JavaScript</a></li>
+						<li><a href="/video/php/" data-module="activator" data-activate data-activate-parent data-activate-folder>Видео PHP</a></li>
+					</ul>
+				</li>
+				-->
+				<!--
+				<li class="dropdown" data-module="activator" data-activate data-activate-folder="/recipes/">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Рецепты<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/recipes/css/" data-module="activator" data-activate data-activate-parent data-activate-folder>Рецепты HTML+CSS</a></li>
+						<li><a href="/recipes/javascript/" data-module="activator" data-activate data-activate-parent data-activate-folder>Рецепты JavaScript</a></li>
+						<li><a href="/recipes/php/" data-module="activator" data-activate data-activate-parent data-activate-folder>Рецепты PHP</a></li>
+					</ul>
+				</li>
+				<li class="dropdown" data-module="activator" data-activate data-activate-folder="/faq/">
+					<a href="#"  class="dropdown-toggle" data-toggle="dropdown">FAQ<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/faq/css/" data-module="activator" data-activate data-activate-parent data-activate-folder>FAQ HTML+CSS</a></li>
+					</ul>
+				</li>
+				-->
+				<li class="dropdown" data-module="activator" data-activate="" data-activate-folder="/textbooks/">
+					<a href="http://code.mu/textbooks/">Книги</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<form action="http://www.yandex.ru/yandsearch" target="_blank" class="navbar-form" role="search">
+						<input type="text" class="form-control" style="width: 150px;" placeholder="Поиск (исправлен)" name="text">
+						<input type="hidden" value="code.mu" name="site">
+						<button type="submit" class="btn btn-default">Найти</button>
+					</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>					</div>
+					<div class="sub-menu" style="margin-bottom: -20px">
+						<div>
+							Ученикам: в чт 15 авг меня не будет весь день, буду в пт и сб
+							<!--
+							Ученикам: сегодня меня не будет весь день. Всем отвечу вечером
+							-->
+							<!--
+							<a target="_blank" href="https://vk.com/topic-42967112_39245856">Бесплатный интенсив! Создаем форум на PHP за 1 неделю! Начало 14-го ноября &rarr;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a target="_blank" href="https://vk.com/topic-42967112_39245820">Бесплатный тренинг "Анонимные функции и замыкания JavaScript". Начало 13-го ноября &rarr;</a>
+							
+							
+							<a target="_blank" href="https://vk.com/topic-42967112_39192409">Бесплатные курсы PHP. Начало 23-го октября. Нажмите, чтобы записаться &rarr;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a target="_blank" href="https://vk.com/topic-42967112_39192395">Бесплатные курсы JavaScript. Начало 30-го октября. Нажмите, чтобы записаться &rarr;</a>
+							-->
+							<!--
+							<a target="_blank" href="https://vk.com/topic-42967112_36242694">Бесплатные материалы по NodeJS и Express. Нажмите, чтобы подписаться &rarr;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a target="_blank" href="https://vk.com/topic-42967112_39017859">Бесплатные материалы по ES6 - примеры применения. Нажмите, чтобы подписаться &rarr;</a>
+							-->
+							<!--
+							Новые видеоуроки теперь в данном паблике <a target="_blank" href="https://vk.com/xcodemu">https://vk.com/xcodemu</a>, выходят несколько раз в неделю. Вступайте!
+							
+							<a target="_blank" href="https://vk.com/topic-42967112_38646233">Запись на бесплатные курсы по JavaScript. Начало 4-го июня &rarr;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							-->
+							<!--
+							<a target="_blank" href="https://vk.com/topic-42967112_36242694">Бесплатные материалы по NodeJS, npm, grunt, gulp, web pack, git. Нажмите, чтобы подписаться &rarr;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a target="_blank" href="https://vk.com/topic-42967112_36288176">Бесплатный тренинг "Основы работы с ООП в JavaScript", <strike>9-го</strike> 16-го ноября &rarr;</a>	
+							-->
+							<!--
+							<a target="_blank" href="http://phphtml.net#anlim">Новинка: добавлены новые форматы курсов! Анлим+Скайп, Анлим+Работа, Анлим+Группы, Стажёр, Практик, подробности phphtml.net#anlim &rarr;</a>
+							-->
+						</div>
+					</div>
+				</div>
+			</header>
+			<div class="h1-block">
+					<a href="http://code.mu/books/javascript/jquery/" class="prev">◄</a>
+	<a href="http://code.mu/books/javascript/jquery/manipulirovanie-elementami-stranicy-cherez-jquery.html" class="next">►</a>
+
+				<h1>Основы работы с jQuery</h1>
+				<div class="jump"><a href="http://code.mu/tasks/javascript/jquery/osnovy-raboty-s-jquery.html">перейти на задачи к уроку →</a></div>			</div>
+			<aside>
+				<div class="sidebars">
+					<div class="left sidebar">
+						<div>
+	<h2>Учебник JavaScript</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Учебник <br>JavaScript для новичков</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="http://code.mu/books/javascript/base/osnovy-yazyka-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>языка JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/osnovy-raboty-s-massivami-i-objektami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с массивами и объектами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/rabota-s-konstrukciyami-if-else-switch-case-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с конструкциями <br>if-else и switch-case</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/rabota-s-ciklami-for-i-while-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с циклами <br>for и while</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/rabota-s-matematicheskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с математическими функциями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/rabota-so-strokovymi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа со строковыми <br>функциями в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/rabota-s-funkciyami-dlya-massivov-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Функции <br>работы с массивами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/praktika-na-kombinacii-standartnyh-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на комбинации <br>стандартных функций</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/osnovy-raboty-s-polzovatelskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с пользовательскими функциями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/priemy-raboty-s-flagami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с флагами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/priemy-raboty-s-logicheskimi-znacheniyami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с логическими значениями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/priemy-raboty-s-ciklami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с циклами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/priemy-raboty-s-massivami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с массивами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/pravilnoe-ispolzovanie-polzovatelskih-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Правильное использование <br>пользовательских функций</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/praktika-na-rabotu-s-polzovatelskimi-funkciyami-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на <br>пользовательские функции</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/prodvinutaya-rabota-s-polzovatelskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с пользовательскими функциями</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/practice/praktika-na-otrabotku-ciklov-i-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>на отработку циклов и функций</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Работа с DOM</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/osnovy-raboty-s-dom-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/rabota-s-elementami-stranicy-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с элементами HTML страницы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/rabota-s-datami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с датами в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/rabota-s-tajmerami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с таймерами в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/prodvinutaya-rabota-s-sobytiyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с событиями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/prodvinutaya-rabota-s-dom-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/rabota-s-metrikami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с метриками</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/rabota-s-metrikami-dlya-window-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с метриками для window</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/osnovy-raboty-s-objektom-event-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с объектом Event</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/prodvinutaya-rabota-s-objektom-event-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с объектом Event</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/raznye-poleznye-temy-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Разные <br>полезные темы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/node/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Работа с узлами</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/practice/praktika-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>JavaScript для новичков</span> <br>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/practice/miniproekty-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>минипроекты JavaScript</span> <br>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.youtube.com/playlist?list=PLqQ1VsG-wgxeYXOmdMAqSmIuQCY2xUc_I" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Разбор квадратного календарика</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/Yoh4XcbYNeQ" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Разбор игры найди случайное число в таблице</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Некоторые продвинутые вещи</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/prodvinutaya-rabota-s-funkciyami-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Анонимные <br>функции и замыкания</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/nekotorye-prodvinutye-funkcii-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Некоторые продвинутые <br>функции JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/nyuansy-raboty-s-sobytiyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Нюансы <br>работы с событиями</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ES6</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/novovvedeniya-v-es6-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Нововведения <br>в ES6 для новичков</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/set/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Коллекция Set</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/map/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Коллекция Map</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Рекомендованное ES6</h2>
+	<ul>
+		<li>
+			<a href="https://www.youtube.com/playlist?list=PLqQ1VsG-wgxfPyBpybkNAAzJlIhC1cA39" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				плейлист на ютуб<br>
+				<span class="menu-hint">Практическое применение ES6</span>
+			</a>
+		</li>
+	</ul>
+	<p class="C">
+		Некоторые видео могут забегать вперед, тк к этому месту учебника
+		мы прошли еще не весь ES6. Просто пропускайте такие видео, посмотрите потом.
+	</p>
+</div>					</div>
+					<div class="right sidebar">
+						<div>
+	<h2>Регулярки</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/regular/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Учебник<br>по регулярным выражениям</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="http://code.mu/books/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-1.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 1.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-2.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 2.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-3.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 3.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-4.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениям. Глава 4.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/regular/otlichiya-regulyarnyh-vyrazenij-javascript-ot-php-versii.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Отличия <br>от PHP версии</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>	
+	<h2>Разное</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/rabota-s-json-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с форматом JSON</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/rabota-s-kuki-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с куки (cookie)</span> 
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/rabota-s-lokalnym-hranilishchem-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с локальным хранилищем</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/animaciya-i-drugie-effekty-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Анимация <br>и другие эффекты</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Работа с канвасом</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/canvas/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Учебник <br>по работе с canvas</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="http://code.mu/books/javascript/canvas/osnovy-raboty-s-canvas-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с canvas</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/canvas/prodvinutaya-rabota-s-canvas-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с canvas</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/practice/prodvinutaya-praktika-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>практика JavaScript</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>AJAX</h2>
+	<ul>
+		<li class="C">
+			урок исключен (мало материала), по аяксу скоро будет
+			отдельный учебник (много материала)
+		</li>
+		<!--
+		<li>
+			<a href="/books/javascript/advanced/rabota-s-ajax-v-javascript.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>AJAX в JavaScript</span>
+			</a>
+		</li>
+		-->
+		<!--
+		<li>
+			<a href="/books/javascript/advanced/rabota-s-ajax-v-javascript-i-php.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>AJAX + PHP</span>
+			</a>
+		</li>
+		-->
+	</ul>
+</div>
+<div>
+	<h2>Контекст</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/context/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с контекстом и this</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="http://code.mu/books/javascript/context/prodvinutaya-rabota-s-kontekstom-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с контекстом</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+<div>
+	<h2>Drag-and-Drop</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/available-events/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Доступные события</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/element-movement-on-window/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перемещение элемента по окну</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/element-movement-on-another/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перемещение на другой элемент</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/oblect-event.dataTransfer/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Объект event.dataTransfer</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/image-instead-of-element-copy/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Картинка при перетягивании</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/cursor-drag-type/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Вид курсора</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ООП</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/oop/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Введение <br>в ООП в стиле ES6</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="http://code.mu/books/javascript/oop/osnovy-raboty-s-oop-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с ООП</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/oop/nasledovanie-klassov-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Наследование <br>классов в JavaScript</span>
+			</a>
+		</li>
+		<!--
+		<li>
+			<a href="/books/javascript/oop/prodvinutaya-rabota-s-klassami-na-javascript.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с классами на JavaScript</span>
+			</a>
+		</li>
+		-->
+		<li>
+			<a href="http://code.mu/books/javascript/oop/primenenie-oop-pri-rabote-s-dom.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Применение <br>ООП при работе с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/oop/praktika-po-oop-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>по ООП в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<span>
+				Тут скоро будут еще уроки<br>
+				по функциональному и прототипному <br> стилю ООП.
+			</span>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика по ООП</h2>
+	<p class="C">
+		Ваша задача: посмотрите, попробуйте повторить.
+	</p>
+	<ul>	
+		<li>
+			<a href="https://youtu.be/k7LhGycrups" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Игра 5 точек в ряд без ООП для разминки</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/HEmShz9kJfw" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Игра 5 точек в ряд ООП вариант</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/sYUILPMnrIo" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Хранение массива в локальном хранилище (предварительная теория)</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/066UMYfXDaA" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Стикеры ООП (нужны основы Drag-and-Drop, выше в учебнике есть)</span>
+			</a>
+		</li>
+		
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/practice/diplomnye-proekty-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Дипломные <br>проекты на JavaScript</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ES6</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/symbol/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Тип Symbol</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/iterator/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Итераторы и генераторы</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Promise ES6</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/resolve-reject/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Функции resolve reject</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/catch/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Метод catch</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/chaining/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Цепочки промисов</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/error-handling/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перехват ошибок</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/Promise.all/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Promise.all</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/Promise.race/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Promise.race</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/async-await/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">async await</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/uploading-images/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Загрузка картинок</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+<div>
+	<h2>Библиотека jQuery</h2>
+	<p class="C">
+		Тк. jQuery устаревает, объявляю
+		эти уроки не обязательными и выношу в конец учебника
+		(так по уровню уроки середины учебника, если что).
+		В перспективе переедет в отдельный учебник по jq.
+	</p>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Учебник <br>jQuery для новичков</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/osnovy-raboty-s-jquery.html" data-module="activator" data-activate="" class="active">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/manipulirovanie-elementami-stranicy-cherez-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Манипулирование <br>элементами страницы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/rabota-s-naborom-elementov-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с набором элементов</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/rabota-s-sobytiyami-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с событиями jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/rabota-s-effektami-i-animaciej-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Эффекты и анимация <br>библиотеки jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/praktika-na-otrabotku-biblioteki-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на отработку <br>библиотеки jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/rabota-s-bibliotekoj-jqueryui.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>библиотекой jQueryUI</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/populyarnye-plaginy-biblioteki-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Популярные плагины <br>библиотеки jQuery</span>
+			</a>
+		</li>
+	</ul>
+</div>					</div>
+				</div>
+			</aside>
+			<div class="content">
+				<main role="main">
+										<p>
+	<i>Мы с вами научились получать группу элементов
+	через jQuery и даже видели некоторые примеры работы с методами.
+	Давайте теперь разберемся с ними более подробно.</i>
+</p>
+
+<h2>Изменение текста элемента через jQuery</h2>
+<p>
+	Решим следующую задачу: получим все элементы с классом <b>.www</b> и одновременно поменяем всем
+	им текст на '!!!'.
+</p>
+<p>
+	Вспомните, как это делается на чистом JavaScript - 
+	нужно получить массив элементов, к примеру, через 
+	<a href="http://code.mu/javascript/dom/getElementsByClassName.html">getElementsByClassName</a>,
+	и перебрать его циклом. Много писанины и длинных слов:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>func()<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword keyword-var">var</span> elems <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByClassName</span><span class="token punctuation">(</span><span class="token string">'www'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-var">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> elems<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	elems<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'!!!'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Через jQuery все будет намного проще: получим все элементы
+	с помощью доллара, вот так: <b>$('.www')</b>, а потом применим к ним метод <b>.html()</b>,
+	который параметром принимает новый текст - <b>$('.www').html('Новый текст')</b>.
+	Всё! Эта строчка выполнит всю работу без всяких циклов и прочей ерунды.
+	Запустите пример и убедитесь в этом сами:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">'!!!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Можно не выстраивать цепочку <b>$('.www').html('!!!')</b>, а сначала 
+	записать набор элементов <b>$('.www')</b> в переменную (я назвал ее <b>elems</b>),
+	и затем уже к этой переменной применить метод <b>.html('!!!')</b>:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword keyword-var">var</span> elems <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+elems<span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">'!!!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Есть соглашение, которым желательно пользоваться для удобства:
+	названия переменных, которые содержат в себе обернутый набор jQuery,
+	принято начинать с доллара. То есть в нашем случае нужно не elems, а <b>$elems</b>.
+</p>
+<p>
+	Если вас смущает такое имя переменной - <b>$elems</b> - учтите, 
+	что доллар в JavaScript является обычным символом и его можно использовать, где угодно.
+	Можно даже сделать имя функции, состоящее из одного символа <b>$</b>, как это сделано в jQuery
+	и некоторых других библиотеках.
+</p>
+<p>
+	Итак, еще раз - если вы хотите записать массив jQuery в переменную, 
+	то эту переменную принято начинать с доллара. Это не обязательно,
+	но позволяет с первого взгляда понять, что в этой переменной лежит
+	группа элементов и к этой переменной применимы все методы jQuery.
+</p>
+<p>
+	Давайте используем это в нашем примере:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token keyword keyword-var">var</span> $elems <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$elems<span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">'!!!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+
+<h2>Вывод текста элемента через jQuery</h2>
+<p>
+	Метод <b>.html()</b> можно использовать не только для изменения
+	текста элементов, но и для вывода его на экран.
+	Давайте получим элемент и выведем 
+	<a href="http://code.mu/javascript/dialog/alert.html">алертом</a>
+	его текст:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>test<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#test'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Если вы попытаетесь получить текст не одного элемента,
+	а многих, то увидите только содержимое первого элемента
+	(используйте метод <a href="http://code.mu/jquery/each.html">.each()</a>, чтобы получить
+	тексты всех элементов, о нем будет ниже в данном уроке).
+</p>
+<p>
+	В примере ниже мы получаем все абзацы с классом www 
+	и выводим алертом содержимое с помощью <b>.html()</b>,
+	выведется только текст первого абзаца из полученных:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Текст абзаца 1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Текст абзаца 2.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Текст абзаца 3.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//выведет 'Текст абзаца 1.'</span>
+<span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+
+<h2>Работа с CSS через jQuery</h2>
+<p>
+	Для работы с CSS в jQuery предусмотрен метод <b>.css()</b>. 
+	Первым параметром он принимает имя CSS свойства, а вторым - его новое значение.
+</p>
+<p>
+	Давайте получим все элементы с классом <b>.www</b> 
+	и поменяем их цвет на красный:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'color'</span><span class="token punctuation">,</span> <span class="token string">'red'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Если свойство, как это часто бывает в CSS, 
+	состоит из нескольких слов, разделенных дефисом,
+	то с этим нет никаких проблем - оно записывается так же,
+	как и в CSS:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'font-size'</span><span class="token punctuation">,</span> <span class="token string">'20px'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Если вы хотите задать несколько CSS свойств,
+	то для этого можно передать параметром в метод .css() <b>объект</b>,
+	ключами которого будут CSS свойства, а значениями объекта - значения CSS свойств:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token punctuation">{</span>color<span class="token punctuation">:</span> <span class="token string">'red'</span><span class="token punctuation">,</span> font<span class="token punctuation">:</span> <span class="token string">'12px Arial'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Однако, тут уже будут проблемы со свойствами типа <b>font-size</b> - 
+	нужно писать не font-size, а <b>fontSize</b>:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token punctuation">{</span>color<span class="token punctuation">:</span> <span class="token string">'red'</span><span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token string">'12px'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Если вам не очень нравится так делать - возьмите ключ <b>font-size</b>
+	в кавычки:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token punctuation">{</span>color<span class="token punctuation">:</span> <span class="token string">'red'</span><span class="token punctuation">,</span> <span class="token string">'font-size'</span><span class="token punctuation">:</span> <span class="token string">'12px'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Как вы видите, jQuery дает различные варианты использования методов
+	в зависимости от ваших предпочтений. Используйте то, что вам удобнее.
+</p>
+
+<h2>Цепочки команд jQuery</h2>
+<p>
+	Напоминаю, что команды jQuery можно писать друг за другом в виде цепочки.
+</p>
+<p>
+	К примеру, давайте поставим всем элементам с классом www
+	текст '!!!' и красный цвет:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">'!!!'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'color'</span><span class="token punctuation">,</span> <span class="token string">'red'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Длина цепочек не ограничена - вы можете применять подряд
+	столько методов, сколько вам нужно.
+</p>
+
+<h2>Селекторы jQuery</h2>
+<p>
+	jQuery поддерживает все стандартные <a href="http://code.mu/css/pages/selectors.html">селекторы CSS</a>
+	и <a href="http://code.mu/css/">псевдоклассы и псевдоэлементы CSS</a>.
+</p>
+<p>
+	В дополнение к ним jQuery поддерживает нестандартные селекторы (псевдоклассы),
+	которые позволяют расширить селекторы CSS.
+</p>
+<p>
+	Для примера возьмем псевдокласс <b>:first</b>, который позволяет выбрать
+	первый элемент в наборе jQuery. Давайте с его помощью найдем
+	первый <span class="tag">&lt;li&gt;</span> на странице:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'li:first'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Сравните со стандартным <a href="http://code.mu/css/first-child.html" l"="">псевдоклассом :first-child</a>:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'li:first-child'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	С помощью <b>:first-child</b> мы найдем все li, которые являются
+	первыми потомками своих родителей, а с помощью <b>:first</b> мы найдем
+	первый li среди выбранных (так как выбирали мы все li, то по сути мы найдем первый li на странице).
+</p>
+<p>
+	То есть <b>:first</b> и другие подобные селекторы jQuery работают так:
+	находят все элементы по заданному селектору, а затем берут первый элемент среди найденных.
+</p>
+<p>
+	Аналогичным образом работает <b>:last</b>, только он находит не первый элемент,
+	а последний.
+</p>
+<p>
+	С помощью <b>:eq</b> мы можем выбрать элемент с любым номером
+	в наборе, к примеру, таким образом - <b>:eq(3)</b> - мы выберем третий найденный элемент.
+</p>
+<p>
+	С помощью <b>:lt</b> и <b>:gt</b> можно выбирать элементы
+	с номером, меньшим или большим заданного числа соответственно.
+	К примеру, так - <b>:lt(3)</b> - мы выберем элементы с номером, меньшим трех,
+	то есть элементы номер 2, 1 и 0.
+</p>
+<p>
+	С помощью <b>:even</b> и <b>:odd</b> можно выбирать четные и нечетные элементы в наборе.
+</p>
+
+<h2>Еще полезные селекторы jQuery</h2>
+<p>
+	Кроме селекторов по набору элементов,
+	jQuery предоставляет нам некоторые другие полезные вещи, которых нет в CSS.
+</p>
+
+<h3>Псевдокласс :header</h3>
+<p>
+	Например, псевдокласс <b>:header</b> выбирает одновременно
+	все заголовки от <b>h1</b> до <b>h6</b>.
+</p>
+
+<h3>Псевдокласс :has</h3>
+<p>
+	Псевдокласс <b>:has</b> выбирает элементы по их содержимому.
+	К примеру, можно выбрать так: <i>все абзацы, внутри которых есть теги b</i>:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац с тегом <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">&gt;</span></span>b<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">&gt;</span></span>.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац с тегом <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">&gt;</span></span>b<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац без b.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'p:has(b)'</span><span class="token punctuation">)</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Обратите внимание на то, что в примере выберется как первый абзац, 
+	так и второй, не смотря на то, что во втором абзаце тег <b>b</b> не лежит непосредственно
+	внутри <b>p</b>, а лежит сначала в <b>i</b>.
+</p>
+<p>
+	Если же вам нужна непосредственная вложенность, то следует сделать так:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац с тегом <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">&gt;</span></span>b<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">&gt;</span></span>.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац с тегом <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">&gt;</span></span>b<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац без b.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'p:has(<mark>&gt;</mark>b)'</span><span class="token punctuation">)</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	В этом случае будет выбран только первый абзац.
+</p>
+
+<h3>Псевдокласс :contains</h3>
+<p>
+	Псевдокласс <b>:contains</b> выбирает элементы по наличию определенного текста в них.
+</p>
+<p>
+	В следующем примере мы выберем абзац, внутри которого есть
+	слово "текст":
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Слово "текст".<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Просто абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'p:contains("текст")'</span><span class="token punctuation">)</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	С помощью <b>:contains()</b> элемент будет выбран,
+	если строка присутствует непосредственно внутри него или 
+	если она находится внутри одного из его потомков.
+</p>
+
+<h3>Псевдоклассы :empty и :parent</h3>
+<p>
+	Псевдокласс <b>:empty</b> позволяет выбрать все пустые элементы
+	(в которых нету текста), а псевдокласс <b>:parent</b> - наоборот,
+	все непустые (<i>parent</i> потому что он выбирает все элементы, являющиеся родителями).
+</p>
+
+<h2>Разница :parent и parent()</h2>
+<p>
+	Кроме псевдокласса <b>:parent</b> существует еще и метод <b>.parent()</b>,
+	который позволяет выбрать родителя элемента.
+</p>
+<p>
+	Давайте, например, найдем родителя тега <b>b</b> и поставим ему красный цвет:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац с тегом <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">&gt;</span></span>b<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">&gt;</span></span>.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац без b.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'color'</span><span class="token punctuation">,</span> <span class="token string">'red'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+
+<h2>Другие селекторы jQuery</h2>
+<p>
+	Изучите все остальные 
+	<a href="http://code.mu/jquery/pages/selectors.html">.pages/selectors()</a> самостоятельно.
+</p>
+
+<h2>Работа с each</h2>
+<p>
+	Когда у нас есть группа элементов, полученных с помощью jQuery,
+	мы можем вносить в них изменения только для всех элементов одновременно.
+</p>
+<p>
+	К примеру, если мы хотим сменить текст всех найденных абзацев - у нас
+	не получится сделать его разным.
+</p>
+<p>
+	В этом случае нам поможет специальный метод <b>.each()</b>,
+	который позволяет применить какую-либо функцию для
+	всех элементов набора jQuery. При этом внутри этой функции
+	мы сможем разделить элементы и поступить по-разному с каждым из них.
+</p>
+<p>
+	По сути <b>.each()</b> является циклом, в помощью которого можно перебрать все найденные элементы.
+	Ссылка на тот элемент, по которому сейчас проходит цикл будет лежать в <b>this</b>.
+</p>
+<p>
+	Мы можем просто воспользоваться этим <b>this</b> на чистом JavaScript,
+	как мы это делали раньше
+	(например, тут: <a href="http://code.mu/books/javascript/dom/prodvinutaya-rabota-s-sobytiyami-v-javascript.html">продвинутая работа с событиями</a>), 
+	к примеру, так - <b>this.innerHTML</b> - и вывести внутреннее содержимое
+	наших элементов. Но лучше обернуть this в доллар jQuery таким образом -
+	<b>$(this)</b> - в этом случае мы сможем применять к нему все методы и цепочки jQuery.
+</p>
+<p>
+	В следующем примере мы получаем все элементы с классом <b>.www</b>
+	и выводим на экран их содержимое. Как это делается: с помощью
+	<b>$('.www')</b> мы получаем нужные нам элементы, затем с помощью
+	<b>.each(test)</b> мы к каждому полученному элементу применяем функцию <b>test</b>.
+	Она сначала применится к первому абзацу, потом ко второму, к третьему и так далее.
+</p>
+<p>
+	Внутри функции <b>this</b> будет указывать на тот элемент, к которому применяется 
+	функция <b>test</b> - сначала это будет первый элемент, потом второй, ну и так далее.
+	С помощью такой конструкции <b>$(this)</b> мы вместо обычного this от JavaScript 
+	получим элемент jQuery и применим к нему метод <b>.html()</b>, который получит
+	текст нашего элемента. Ну, а дальше он просто алертом выведется на экран:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Текст абзаца 1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Текст абзаца 2.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Текст абзаца 3.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token comment" spellcheck="true">/*
+	Имя функции test пишем без кавычек и (),
+	так как нам нужен ее код, а не результат:
+*/</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span>test<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+<p>
+	Можно и с <a href="http://code.mu/books/javascript/advanced/prodvinutaya-rabota-s-funkciyami-javascript.html">анонимными функциями</a>
+	- так делают чаще всего:
+</p>
+<div class="example-block">
+	<pre class="line-numbers language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Текст абзаца 1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Текст абзаца 2.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>www<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Текст абзаца 3.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Абзац.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<pre class="line-numbers language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.www'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token keyword keyword-function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">alert</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>					<div class="nav-block">
+	<h2>Что вам делать дальше:</h2>
+	<p>
+		Приступайте к решению задач по следующей ссылке: <a href="http://code.mu/tasks/javascript/jquery/osnovy-raboty-s-jquery.html">задачи к уроку</a>.
+	</p>
+	<p>
+		Когда все решите - переходите к изучению новой темы.
+	</p>
+</div>					<div class="nav-block siblings-block">
+			<a href="http://code.mu/books/javascript/jquery/" class="prev"><span class="arrow">←</span> Предыдущая страница</a>
+				<a href="http://code.mu/books/javascript/jquery/manipulirovanie-elementami-stranicy-cherez-jquery.html" class="next">Следующая страница <span class="arrow">→</span></a>
+	</div>
+
+				</main>
+				<aside>
+					<div class="bottom-menu" id="menu">
+						<div class="left sidebar">
+							<div>
+	<h2>Учебник JavaScript</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Учебник <br>JavaScript для новичков</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="http://code.mu/books/javascript/base/osnovy-yazyka-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>языка JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/osnovy-raboty-s-massivami-i-objektami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с массивами и объектами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/rabota-s-konstrukciyami-if-else-switch-case-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с конструкциями <br>if-else и switch-case</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/rabota-s-ciklami-for-i-while-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с циклами <br>for и while</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/rabota-s-matematicheskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с математическими функциями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/rabota-so-strokovymi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа со строковыми <br>функциями в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/rabota-s-funkciyami-dlya-massivov-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Функции <br>работы с массивами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/praktika-na-kombinacii-standartnyh-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на комбинации <br>стандартных функций</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/osnovy-raboty-s-polzovatelskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с пользовательскими функциями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/priemy-raboty-s-flagami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с флагами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/priemy-raboty-s-logicheskimi-znacheniyami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с логическими значениями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/priemy-raboty-s-ciklami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с циклами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/priemy-raboty-s-massivami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с массивами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/pravilnoe-ispolzovanie-polzovatelskih-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Правильное использование <br>пользовательских функций</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/praktika-na-rabotu-s-polzovatelskimi-funkciyami-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на <br>пользовательские функции</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/base/prodvinutaya-rabota-s-polzovatelskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с пользовательскими функциями</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/practice/praktika-na-otrabotku-ciklov-i-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>на отработку циклов и функций</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Работа с DOM</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/osnovy-raboty-s-dom-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/rabota-s-elementami-stranicy-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с элементами HTML страницы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/rabota-s-datami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с датами в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/rabota-s-tajmerami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с таймерами в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/prodvinutaya-rabota-s-sobytiyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с событиями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/prodvinutaya-rabota-s-dom-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/rabota-s-metrikami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с метриками</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/rabota-s-metrikami-dlya-window-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с метриками для window</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/osnovy-raboty-s-objektom-event-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с объектом Event</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/prodvinutaya-rabota-s-objektom-event-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с объектом Event</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/dom/raznye-poleznye-temy-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Разные <br>полезные темы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/node/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Работа с узлами</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/practice/praktika-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>JavaScript для новичков</span> <br>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/practice/miniproekty-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>минипроекты JavaScript</span> <br>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.youtube.com/playlist?list=PLqQ1VsG-wgxeYXOmdMAqSmIuQCY2xUc_I" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Разбор квадратного календарика</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/Yoh4XcbYNeQ" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Разбор игры найди случайное число в таблице</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Некоторые продвинутые вещи</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/prodvinutaya-rabota-s-funkciyami-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Анонимные <br>функции и замыкания</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/nekotorye-prodvinutye-funkcii-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Некоторые продвинутые <br>функции JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/nyuansy-raboty-s-sobytiyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Нюансы <br>работы с событиями</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ES6</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/novovvedeniya-v-es6-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Нововведения <br>в ES6 для новичков</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/set/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Коллекция Set</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/map/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Коллекция Map</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Рекомендованное ES6</h2>
+	<ul>
+		<li>
+			<a href="https://www.youtube.com/playlist?list=PLqQ1VsG-wgxfPyBpybkNAAzJlIhC1cA39" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				плейлист на ютуб<br>
+				<span class="menu-hint">Практическое применение ES6</span>
+			</a>
+		</li>
+	</ul>
+	<p class="C">
+		Некоторые видео могут забегать вперед, тк к этому месту учебника
+		мы прошли еще не весь ES6. Просто пропускайте такие видео, посмотрите потом.
+	</p>
+</div>						</div>
+						<div class="right sidebar">
+							<div>
+	<h2>Регулярки</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/regular/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Учебник<br>по регулярным выражениям</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="http://code.mu/books/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-1.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 1.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-2.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 2.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-3.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 3.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-4.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениям. Глава 4.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/regular/otlichiya-regulyarnyh-vyrazenij-javascript-ot-php-versii.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Отличия <br>от PHP версии</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>	
+	<h2>Разное</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/rabota-s-json-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с форматом JSON</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/rabota-s-kuki-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с куки (cookie)</span> 
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/rabota-s-lokalnym-hranilishchem-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с локальным хранилищем</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/advanced/animaciya-i-drugie-effekty-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Анимация <br>и другие эффекты</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Работа с канвасом</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/canvas/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Учебник <br>по работе с canvas</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="http://code.mu/books/javascript/canvas/osnovy-raboty-s-canvas-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с canvas</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/canvas/prodvinutaya-rabota-s-canvas-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с canvas</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/practice/prodvinutaya-praktika-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>практика JavaScript</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>AJAX</h2>
+	<ul>
+		<li class="C">
+			урок исключен (мало материала), по аяксу скоро будет
+			отдельный учебник (много материала)
+		</li>
+		<!--
+		<li>
+			<a href="/books/javascript/advanced/rabota-s-ajax-v-javascript.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>AJAX в JavaScript</span>
+			</a>
+		</li>
+		-->
+		<!--
+		<li>
+			<a href="/books/javascript/advanced/rabota-s-ajax-v-javascript-i-php.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>AJAX + PHP</span>
+			</a>
+		</li>
+		-->
+	</ul>
+</div>
+<div>
+	<h2>Контекст</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/context/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с контекстом и this</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="http://code.mu/books/javascript/context/prodvinutaya-rabota-s-kontekstom-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с контекстом</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+<div>
+	<h2>Drag-and-Drop</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/available-events/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Доступные события</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/element-movement-on-window/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перемещение элемента по окну</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/element-movement-on-another/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перемещение на другой элемент</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/oblect-event.dataTransfer/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Объект event.dataTransfer</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/image-instead-of-element-copy/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Картинка при перетягивании</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/cursor-drag-type/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Вид курсора</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ООП</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/oop/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Введение <br>в ООП в стиле ES6</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="http://code.mu/books/javascript/oop/osnovy-raboty-s-oop-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с ООП</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/oop/nasledovanie-klassov-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Наследование <br>классов в JavaScript</span>
+			</a>
+		</li>
+		<!--
+		<li>
+			<a href="/books/javascript/oop/prodvinutaya-rabota-s-klassami-na-javascript.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с классами на JavaScript</span>
+			</a>
+		</li>
+		-->
+		<li>
+			<a href="http://code.mu/books/javascript/oop/primenenie-oop-pri-rabote-s-dom.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Применение <br>ООП при работе с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/oop/praktika-po-oop-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>по ООП в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<span>
+				Тут скоро будут еще уроки<br>
+				по функциональному и прототипному <br> стилю ООП.
+			</span>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика по ООП</h2>
+	<p class="C">
+		Ваша задача: посмотрите, попробуйте повторить.
+	</p>
+	<ul>	
+		<li>
+			<a href="https://youtu.be/k7LhGycrups" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Игра 5 точек в ряд без ООП для разминки</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/HEmShz9kJfw" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Игра 5 точек в ряд ООП вариант</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/sYUILPMnrIo" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Хранение массива в локальном хранилище (предварительная теория)</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/066UMYfXDaA" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Стикеры ООП (нужны основы Drag-and-Drop, выше в учебнике есть)</span>
+			</a>
+		</li>
+		
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/books/javascript/practice/diplomnye-proekty-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Дипломные <br>проекты на JavaScript</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ES6</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/symbol/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Тип Symbol</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/iterator/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Итераторы и генераторы</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Promise ES6</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/resolve-reject/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Функции resolve reject</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/catch/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Метод catch</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/chaining/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Цепочки промисов</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/error-handling/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перехват ошибок</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/Promise.all/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Promise.all</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/Promise.race/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Promise.race</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/async-await/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">async await</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/uploading-images/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Загрузка картинок</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+<div>
+	<h2>Библиотека jQuery</h2>
+	<p class="C">
+		Тк. jQuery устаревает, объявляю
+		эти уроки не обязательными и выношу в конец учебника
+		(так по уровню уроки середины учебника, если что).
+		В перспективе переедет в отдельный учебник по jq.
+	</p>
+	<ul>	
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Учебник <br>jQuery для новичков</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/osnovy-raboty-s-jquery.html" data-module="activator" data-activate="" class="active">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/manipulirovanie-elementami-stranicy-cherez-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Манипулирование <br>элементами страницы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/rabota-s-naborom-elementov-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с набором элементов</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/rabota-s-sobytiyami-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с событиями jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/rabota-s-effektami-i-animaciej-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Эффекты и анимация <br>библиотеки jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/praktika-na-otrabotku-biblioteki-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на отработку <br>библиотеки jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/rabota-s-bibliotekoj-jqueryui.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>библиотекой jQueryUI</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/books/javascript/jquery/populyarnye-plaginy-biblioteki-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Популярные плагины <br>библиотеки jQuery</span>
+			</a>
+		</li>
+	</ul>
+</div>						</div>
+					</div>
+				</aside>
+			</div>
+			<footer>
+				<div class="footer">
+					<div class="C">
+	Трепачёв Дмитрий Петрович ©  2012-2019 г.
+	<br>
+	По всем вопросам пишите в skype: "dima-krasnyi" и контакт: <a href="https://vk.com/id55437525">Я в контакте</a>, 
+	звоните по телефону: +375 29 817 68 92.
+</div>					<div style="text-align: center;"><hr style="width: 100px; display: inline-block; border-color: black; margin: 5px 0;"></div>
+					<div style="font-size: 12px;">
+						На сайте есть опечатки, я в курсе. К лету я планирую выкатить
+						новую исправленную версию сайта, поэтому пока не присылайте мне опечатки.<br>
+						Приветствуются только опечатки с новых уроков, расположенных на поддомене
+						new.code.mu
+					</div>
+				</div>
+			</footer>			
+		</div>
+		<script>
+			$('iframe:not([style])').on('load', function(){$(this).height($(this).contents().find('html').height());})
+		</script>
+		<script src="./Основы работы с jQuery _ Трепачёв Дмитрий_files/prism.js.Без названия"></script>
+		
+		<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24425807 = new Ya.Metrika({
+                    id:24425807,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/24425807" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->	
+</body></html>

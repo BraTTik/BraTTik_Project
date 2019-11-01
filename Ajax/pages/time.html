@@ -1,0 +1,10 @@
+<p id="time"></p>
+<script>
+    let timeElem = document.getElementById('time');
+
+    function setTime(){
+        let date = new Date();
+        timeElem.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    }
+    setTime();
+</script>

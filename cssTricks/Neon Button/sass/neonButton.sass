@@ -1,0 +1,84 @@
+*
+    margin: 0
+    padding: 0
+
+body
+    background-color: #031321
+    display: flex
+    align-items: center
+    justify-content: center
+    font-family: consolas
+    min-height: 100vh
+
+a
+    display: inline-block
+    font-size: 30px
+    padding: 15px 30px
+    text-decoration: none
+    text-transform: uppercase
+    transition: .2s
+    color: #87EA00
+    border-radius: 5px
+    position: relative
+    overflow: hidden
+    &:hover
+        background-color: #87EA00
+        color: 	#007929
+        box-shadow: 0 0 10px #87EA00, 0 0 40px #87EA00, 0 0 80px #87EA00
+        transition-delay: 1s
+a span
+    display: block
+    position: absolute
+    &:nth-child(1)
+        top: 0
+        left: -100%
+        width: 100%
+        height: 2px
+        background-image: linear-gradient(90deg, transparent, #87EA00)
+    &:nth-child(3)
+        bottom: 0
+        right: -100%
+        width: 100%
+        height: 2px
+        background-image: linear-gradient(270deg, transparent, #87EA00)
+    &:nth-child(2)
+        width: 2px
+        height: 100%
+        right: 0
+        top: -100%
+        background-image: linear-gradient(180deg, transparent, #87EA00)
+    &:nth-child(4)
+        width: 2px
+        height: 100%
+        left: 0
+        bottom: -100%
+        background-image: linear-gradient(0deg, transparent, #87EA00)
+
+
+
+
+a:hover span
+    &:nth-child(1)
+        left: 100%
+        transition: .5s
+    &:nth-child(3)
+        right: 100%
+        transition: .5s
+        transition-delay: .5s
+    &:nth-child(2)
+        top: 100%
+        transition: .5s
+        transition-delay: .25s
+    &:nth-child(4)
+        bottom: 100%
+        transition: .5s
+        transition-delay: .75s
+
+
+
+
+
+        
+
+
+

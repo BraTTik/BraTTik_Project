@@ -1,0 +1,143 @@
+/*
+	Классы для использования на страницах. 
+	Версия 1.0.
+*/
+/*
+	Alesya 4.00 beta 3, phphtml.net.
+*/
+.wsn {
+  word-spacing: normal;
+}
+.lsn {
+  letter-spacing: normal;
+}
+.lhn {
+  line-height: normal;
+}
+.C {
+  text-align: center !important;
+  text-indent: 0px !important;
+}
+.J {
+  text-align: justify !important;
+  text-indent: 0px !important;
+}
+.L {
+  text-align: left !important;
+  text-indent: 0px !important;
+}
+.R {
+  text-align: right !important;
+  text-indent: 0px !important;
+}
+.green {
+  color: #008000 !important;
+}
+.red {
+  color: #ff0000 !important;
+}
+.darkRed {
+  color: #ca0216 !important;
+}
+.blue {
+  color: #0000ff !important;
+}
+.dark {
+  color: #7e7372 !important;
+}
+.orange {
+  color: #ffa500 !important;
+}
+.white {
+  color: #ffffff !important;
+}
+.bgGreen {
+  background-color: #DFF0D8 !important;
+  border: 1px solid #BFE1B0 !important;
+  color: green !important;
+  text-shadow: 2px 1px 2px #ECF7E8 !important;
+  padding: 10px !important;
+}
+.bgRed {
+  background-color: #FFC1D2 !important;
+  border: 1px solid #FF97B4 !important;
+  color: #A60025 !important;
+  text-shadow: 2px 1px 2px #FFD9E1 !important;
+  padding: 10px !important;
+}
+.bgOrange {
+  background-color: #FBB960 !important;
+  border: 1px solid #FF97B4 !important;
+  color: white !important;
+  padding: 10px !important;
+}
+.bgBlue {
+  background-color: #C7E8FC !important;
+  border: 1px solid #A0D9FA !important;
+  color: #0B81C8 !important;
+  text-shadow: 2px 1px 2px #E7F5FE !important;
+  padding: 10px !important;
+}
+.bgBlack {
+  background-color: #3C3C3C !important;
+  border: 1px solid black !important;
+  color: white !important;
+  text-shadow: 1px 1px 1px black !important;
+  padding: 10px !important;
+}
+.bgGray {
+  background-color: #ECE9D8 !important;
+  border: 1px solid #DCD7B6 !important;
+  color: black !important;
+  text-shadow: 2px 1px 2px #E2F3FE !important;
+  padding: 10px !important;
+}
+.bgSilver {
+  background-color: #E5E5E5 !important;
+  border: 0px solid black !important;
+  color: black !important;
+  text-shadow: 2px 1px 2px #E2F3FE !important;
+  padding: 10px !important;
+}
+.br {
+  border: 1px solid black !important;
+}
+.brGreen {
+  border: 1px solid #008000 !important;
+}
+.brRed {
+  border: 1px solid #ff0000 !important;
+}
+.brBlue {
+  border: 1px solid #0000ff !important;
+}
+.brDark {
+  border: 1px solid #7e7372 !important;
+}
+.brOrange {
+  border: 1px solid #ffa500 !important;
+}
+.brDarkRed {
+  border: 1px solid #ca0216 !important;
+}
+.out {
+  outline: 1px solid black !important;
+}
+.outGreen {
+  outline: 1px solid #008000 !important;
+}
+.outRed {
+  outline: 1px solid #ff0000 !important;
+}
+.outBlue {
+  outline: 1px solid #0000ff !important;
+}
+.outDark {
+  outline: 1px solid #7e7372 !important;
+}
+.outOrange {
+  outline: 1px solid #ffa500 !important;
+}
+.outDarkRed {
+  outline: 1px solid #ca0216 !important;
+}

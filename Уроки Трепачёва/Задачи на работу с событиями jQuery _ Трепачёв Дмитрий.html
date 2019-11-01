@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)http://code.mu/tasks/javascript/jquery/rabota-s-sobytiyami-jquery.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>Задачи на работу с событиями jQuery | Трепачёв Дмитрий</title>
+		
+		<script type="text/javascript" async="" src="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/watch.js.Без названия"></script><script src="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/jquery.min.js.Без названия"></script>
+		<script src="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/activator.js.Без названия"></script>
+		
+		<link rel="stylesheet" href="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/bootstrap.css">
+		<script src="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/bootstrap.min.js.Без названия"></script>
+		
+		<link rel="stylesheet" href="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/layout.css">
+		<link rel="stylesheet" href="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/styles.css">
+		<link rel="stylesheet" href="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/classes.css">
+		
+		<meta name="description" content="Здесь находятся задачи на работу с событиями jQuery. Есть ответы и примеры решения.">
+		<link href="http://code.mu/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+		<script src="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/css.js.Без названия"></script>
+		<script src="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/answers.js.Без названия"></script>
+		<script src="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/scripts.js.Без названия"></script>
+		<script src="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/mr-koder.js.Без названия"></script>
+		
+		<link rel="stylesheet" href="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/prism.css">
+		<meta name="google-site-verification" content="Af0TM2OrwIEtjoQXxYz2-1C-21E1m7DB23_kWpE9sLg">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<div class="top">
+					<div class="top-left"><img data-module="mr-koder" data-behavior="img" src="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/relax.png" style="display: inline-block;"></div>
+					<div class="top-right">Трепачёв Д.П. © 2012-2019 г.</div>
+					<div class="top-center">
+						<!--
+						<a target="_blank" href="http://phphtml.net">
+							Внимание! В связи с высоким спросом
+							<span style="color: red;">1-го ноября цены на курсы вырастут в 2 раза</span><br>
+							Спешите: записаться по старым ценам! &rarr;
+						</a>
+						-->
+						<a target="_blank" href="http://phphtml.net/">
+							Запись на курсы по HTML, CSS, JavaScript, PHP, фреймворкам и CMS,<br>
+							<b>а также</b>: помощь в поиске работы и заказов, стажировка на реальных проектах →
+							<!--
+							<br>
+							<span style="color: red;">Акция:</span> до 1-го марта <span style="color: red;">25%</span>
+							скидка на тариф Практик &rarr;
+							-->
+						</a>
+					</div>
+				</div>
+				<div class="header">
+					<div class="top-menu">
+						<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="http://code.mu/">theory.phphtml.net</a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="dropdown" data-module="activator" data-activate="" data-activate-folder="/css/, /pseudo/, /html/, /attr/, /php/, /sql/, /javascript/, /jquery/">
+					<a href="http://code.mu/tasks/javascript/jquery/rabota-s-sobytiyami-jquery.html#" class="dropdown-toggle" data-toggle="dropdown">Справочники <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="http://code.mu/html/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="/html/, /attr/">Справочник по тегам и атрибутам HTML5</a></li>
+						<li><a href="http://code.mu/css/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Справочник по свойствам CSS3</a></li>	
+						<li><a href="http://code.mu/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Справочник по методам JavaScript</a></li>	
+						<li><a href="http://code.mu/jquery/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Справочник по методам jQuery</a></li>	
+						<li><a href="http://code.mu/canvas/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Справочник по работе с Canvas</a></li>	
+						<li><a href="http://code.mu/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder"="">Справочник по функциям PHP</a></li>	
+						<li><a href="http://code.mu/sql/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Справочник по командам MySQL</a></li>	
+					</ul>
+				</li>
+				<li class="dropdown" data-module="activator" data-activate="" data-activate-folder="/books/">
+					<a href="http://code.mu/tasks/javascript/jquery/rabota-s-sobytiyami-jquery.html#" class="dropdown-toggle" data-toggle="dropdown">Учебники <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="http://code.mu/books/css/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Учебник HTML+CSS для новичков</a></li>
+						<li><a href="http://code.mu/books/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Учебник JavaScript+jQuery для новичков</a></li>
+						<li><a href="http://code.mu/books/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Учебник PHP+SQL для новичков</a></li>
+						<li><a href="http://code.mu/books/advanced/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Фреймворки JavaScript</a></li>
+						<li><a href="http://code.mu/books/advanced/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Фреймворки PHP, парсинг</a></li>
+					</ul>
+				</li>
+				<li class="dropdown active" data-module="activator" data-activate="" data-activate-folder="/tasks/">
+					<a href="http://code.mu/tasks/javascript/jquery/rabota-s-sobytiyami-jquery.html#" class="dropdown-toggle" data-toggle="dropdown">Задачники <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="http://code.mu/tasks/css/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Задачник HTML+CSS с нуля</a></li>
+						<li class="active"><a href="http://code.mu/tasks/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Задачник JavaScript+jQuery с нуля</a></li>	
+						<li><a href="http://code.mu/tasks/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Задачник PHP+SQL с нуля</a></li>	
+						<li><a href="http://code.mu/tasks/advanced/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Задачник по фреймворкам JavaScript</a></li>
+						<li><a href="http://code.mu/tasks/advanced/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Задачник по фреймворкам PHP, парсингу</a></li>
+						<li class="divider"></li>
+						<li><a href="http://vk.com/zadachi_css" target="_blank">Занимательные задачи HTML+CSS →</a></li>
+						<li><a href="http://vk.com/zadachi_javascript_jquery" target="_blank">Занимательные задачи JavaScript+jQuery →</a></li>
+						<li><a href="http://vk.com/zadachi_php" target="_blank">Занимательные задачи PHP →</a></li>
+						<li><a href="http://regular.phphtml.net/" target="_blank">Занимательные регулярки PHP →</a></li>
+					</ul>
+				</li>
+				<li class="dropdown" data-module="activator" data-activate="" data-activate-folder="/webinars/">
+					<a href="http://code.mu/tasks/javascript/jquery/rabota-s-sobytiyami-jquery.html#" class="dropdown-toggle" data-toggle="dropdown">Вебинары<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="http://code.mu/webinars/css/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Бесплатные вебинары по HTML+CSS</a></li>
+						<li><a href="http://code.mu/webinars/javascript/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Бесплатные вебинары по JavaScript</a></li>
+						<li><a href="http://code.mu/webinars/php/" data-module="activator" data-activate="" data-activate-parent="" data-activate-folder="">Бесплатные вебинары по PHP</a></li>
+					</ul>
+				</li>
+				<!--
+				<li class="dropdown" data-module="activator" data-activate data-activate-folder="/video/">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Видео<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/video/css/" data-module="activator" data-activate data-activate-parent data-activate-folder>Видео HTML+CSS</a></li>
+						<li><a href="/video/javascript/" data-module="activator" data-activate data-activate-parent data-activate-folder>Видео JavaScript</a></li>
+						<li><a href="/video/php/" data-module="activator" data-activate data-activate-parent data-activate-folder>Видео PHP</a></li>
+					</ul>
+				</li>
+				-->
+				<!--
+				<li class="dropdown" data-module="activator" data-activate data-activate-folder="/recipes/">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Рецепты<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/recipes/css/" data-module="activator" data-activate data-activate-parent data-activate-folder>Рецепты HTML+CSS</a></li>
+						<li><a href="/recipes/javascript/" data-module="activator" data-activate data-activate-parent data-activate-folder>Рецепты JavaScript</a></li>
+						<li><a href="/recipes/php/" data-module="activator" data-activate data-activate-parent data-activate-folder>Рецепты PHP</a></li>
+					</ul>
+				</li>
+				<li class="dropdown" data-module="activator" data-activate data-activate-folder="/faq/">
+					<a href="#"  class="dropdown-toggle" data-toggle="dropdown">FAQ<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/faq/css/" data-module="activator" data-activate data-activate-parent data-activate-folder>FAQ HTML+CSS</a></li>
+					</ul>
+				</li>
+				-->
+				<li class="dropdown" data-module="activator" data-activate="" data-activate-folder="/textbooks/">
+					<a href="http://code.mu/textbooks/">Книги</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<form action="http://www.yandex.ru/yandsearch" target="_blank" class="navbar-form" role="search">
+						<input type="text" class="form-control" style="width: 150px;" placeholder="Поиск (исправлен)" name="text">
+						<input type="hidden" value="code.mu" name="site">
+						<button type="submit" class="btn btn-default">Найти</button>
+					</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>					</div>
+					<div class="sub-menu" style="margin-bottom: -20px">
+						<div>
+							Ученикам: в чт 15 авг меня не будет весь день, буду в пт и сб
+							<!--
+							Ученикам: сегодня меня не будет весь день. Всем отвечу вечером
+							-->
+							<!--
+							<a target="_blank" href="https://vk.com/topic-42967112_39245856">Бесплатный интенсив! Создаем форум на PHP за 1 неделю! Начало 14-го ноября &rarr;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a target="_blank" href="https://vk.com/topic-42967112_39245820">Бесплатный тренинг "Анонимные функции и замыкания JavaScript". Начало 13-го ноября &rarr;</a>
+							
+							
+							<a target="_blank" href="https://vk.com/topic-42967112_39192409">Бесплатные курсы PHP. Начало 23-го октября. Нажмите, чтобы записаться &rarr;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a target="_blank" href="https://vk.com/topic-42967112_39192395">Бесплатные курсы JavaScript. Начало 30-го октября. Нажмите, чтобы записаться &rarr;</a>
+							-->
+							<!--
+							<a target="_blank" href="https://vk.com/topic-42967112_36242694">Бесплатные материалы по NodeJS и Express. Нажмите, чтобы подписаться &rarr;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a target="_blank" href="https://vk.com/topic-42967112_39017859">Бесплатные материалы по ES6 - примеры применения. Нажмите, чтобы подписаться &rarr;</a>
+							-->
+							<!--
+							Новые видеоуроки теперь в данном паблике <a target="_blank" href="https://vk.com/xcodemu">https://vk.com/xcodemu</a>, выходят несколько раз в неделю. Вступайте!
+							
+							<a target="_blank" href="https://vk.com/topic-42967112_38646233">Запись на бесплатные курсы по JavaScript. Начало 4-го июня &rarr;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							-->
+							<!--
+							<a target="_blank" href="https://vk.com/topic-42967112_36242694">Бесплатные материалы по NodeJS, npm, grunt, gulp, web pack, git. Нажмите, чтобы подписаться &rarr;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a target="_blank" href="https://vk.com/topic-42967112_36288176">Бесплатный тренинг "Основы работы с ООП в JavaScript", <strike>9-го</strike> 16-го ноября &rarr;</a>	
+							-->
+							<!--
+							<a target="_blank" href="http://phphtml.net#anlim">Новинка: добавлены новые форматы курсов! Анлим+Скайп, Анлим+Работа, Анлим+Группы, Стажёр, Практик, подробности phphtml.net#anlim &rarr;</a>
+							-->
+						</div>
+					</div>
+				</div>
+			</header>
+			<div class="h1-block">
+					<a href="http://code.mu/tasks/javascript/jquery/rabota-s-naborom-elementov-jquery.html" class="prev">◄</a>
+	<a href="http://code.mu/tasks/javascript/jquery/rabota-s-effektami-i-animaciej-jquery.html" class="next">►</a>
+
+				<h1>Задачи на работу с событиями jQuery</h1>
+							</div>
+			<aside>
+				<div class="sidebars">
+					<div class="left sidebar">
+						<div>
+	<h2>Учебник JavaScript</h2>
+	<ul>	
+		
+		<li>
+			<a href="http://code.mu/tasks/javascript/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Задачник <br>JavaScript для новичков</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/osnovy-yazyka-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>языка JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/osnovy-raboty-s-massivami-i-objektami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с массивами и объектами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/rabota-s-konstrukciyami-if-else-switch-case-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с конструкциями <br>if-else и switch-case</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/rabota-s-ciklami-for-i-while-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с циклами <br>for и while</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/rabota-s-matematicheskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с математическими функциями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/rabota-so-strokovymi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа со строковыми <br>функциями в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/rabota-s-funkciyami-dlya-massivov-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Функции <br>работы с массивами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/praktika-na-kombinacii-standartnyh-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на комбинации <br>стандартных функций</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/osnovy-raboty-s-polzovatelskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с пользовательскими функциями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/priemy-raboty-s-flagami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с флагами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/priemy-raboty-s-logicheskimi-znacheniyami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с логическими значениями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/priemy-raboty-s-ciklami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с циклами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/priemy-raboty-s-massivami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с массивами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/pravilnoe-ispolzovanie-polzovatelskih-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Правильное использование <br>пользовательских функций</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/praktika-na-rabotu-s-polzovatelskimi-funkciyami-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на <br>пользовательские функции</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/prodvinutaya-rabota-s-polzovatelskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с пользовательскими функциями</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/tasks/javascript/practice/praktika-na-otrabotku-ciklov-i-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>на отработку циклов и функций</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Работа с DOM</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/osnovy-raboty-s-dom-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/rabota-s-elementami-stranicy-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с элементами HTML страницы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/rabota-s-datami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с датами в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/rabota-s-tajmerami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с таймерами в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/prodvinutaya-rabota-s-sobytiyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с событиями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/prodvinutaya-rabota-s-dom-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/rabota-s-metrikami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с метриками</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/rabota-s-metrikami-dlya-window-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с метриками для window</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/osnovy-raboty-s-objektom-event-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с объектом Event</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/prodvinutaya-rabota-s-objektom-event-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с объектом Event</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/raznye-poleznye-temy-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Разные <br>полезные темы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/node/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Работа с узлами</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/tasks/javascript/practice/praktika-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>JavaScript для новичков</span> <br>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/practice/miniproekty-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>минипроекты JavaScript</span> <br>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.youtube.com/playlist?list=PLqQ1VsG-wgxeYXOmdMAqSmIuQCY2xUc_I" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Разбор квадратного календарика</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/Yoh4XcbYNeQ" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Разбор игры найди случайное число в таблице</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Некоторые продвинутые вещи</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/prodvinutaya-rabota-s-funkciyami-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Анонимные <br>функции и замыкания</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/nekotorye-prodvinutye-funkcii-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Некоторые продвинутые <br>функции JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/nyuansy-raboty-s-sobytiyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Нюансы <br>работы с событиями</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ES6</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/novovvedeniya-v-es6-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Нововведения <br>в ES6 для новичков</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/set/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Коллекция Set</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/map/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Коллекция Map</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Рекомендованное ES6</h2>
+	<ul>
+		<li>
+			<a href="https://www.youtube.com/playlist?list=PLqQ1VsG-wgxfPyBpybkNAAzJlIhC1cA39" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				плейлист на ютуб<br>
+				<span class="menu-hint">Практическое применение ES6</span>
+			</a>
+		</li>
+	</ul>
+	<p class="C">
+		Некоторые видео могут забегать вперед, тк к этому месту учебника
+		мы прошли еще не весь ES6. Просто пропускайте такие видео, посмотрите потом.
+	</p>
+</div>					</div>
+					<div class="right sidebar">
+						<div>
+	<h2>Регулярки</h2>
+	<ul>
+		
+		<li>
+			<span>
+				Урок №<span class="-sidebar-"></span> <br>Введение, задач нет
+			</span>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-1.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 1.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-2.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 2.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-3.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 3.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-4.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениям. Глава 4.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/regular/otlichiya-regulyarnyh-vyrazenij-javascript-ot-php-versii.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Отличия <br>от PHP версии</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>	
+	<h2>Разное</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/rabota-s-json-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с форматом JSON</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/rabota-s-kuki-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с куки (cookie)</span> 
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/rabota-s-lokalnym-hranilishchem-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с локальным хранилищем</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/animaciya-i-drugie-effekty-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Анимация <br>и другие эффекты</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Работа с канвасом</h2>
+	<ul>
+		
+		<li>
+			<span>
+				Урок №<span class="-sidebar-"></span> <br>Введение, задач нет
+			</span>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/canvas/osnovy-raboty-s-canvas-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с canvas</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/canvas/prodvinutaya-rabota-s-canvas-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с canvas</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/tasks/javascript/practice/prodvinutaya-praktika-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>практика JavaScript</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>AJAX</h2>
+	<ul>
+		<li class="C">
+			урок исключен (мало материала), по аяксу скоро будет
+			отдельный учебник (много материала)
+		</li>
+		<!--
+		<li>
+			<a href="/tasks/javascript/advanced/rabota-s-ajax-v-javascript.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>AJAX в JavaScript</span>
+			</a>
+		</li>
+		-->
+		<!--
+		<li>
+			<a href="/tasks/javascript/advanced/rabota-s-ajax-v-javascript-i-php.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>AJAX + PHP</span>
+			</a>
+		</li>
+		-->
+	</ul>
+</div>
+<div>
+	<h2>Контекст</h2>
+	<ul>
+		
+		<li>
+			<span>
+				Урок №<span class="-sidebar-"></span> <br>Введение, задач нет
+			</span>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/context/prodvinutaya-rabota-s-kontekstom-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с контекстом</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+<div>
+	<h2>Drag-and-Drop</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/available-events/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Доступные события</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/element-movement-on-window/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перемещение элемента по окну</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/element-movement-on-another/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перемещение на другой элемент</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/oblect-event.dataTransfer/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Объект event.dataTransfer</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/image-instead-of-element-copy/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Картинка при перетягивании</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/cursor-drag-type/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Вид курсора</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ООП</h2>
+	<ul>
+		
+		<li>
+			<span>
+				Урок №<span class="-sidebar-"></span> <br>Введение, задач нет
+			</span>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/oop/osnovy-raboty-s-oop-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с ООП</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/oop/nasledovanie-klassov-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Наследование <br>классов в JavaScript</span>
+			</a>
+		</li>
+		<!--
+		<li>
+			<a href="/tasks/javascript/oop/prodvinutaya-rabota-s-klassami-na-javascript.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с классами на JavaScript</span>
+			</a>
+		</li>
+		-->
+		<li>
+			<a href="http://code.mu/tasks/javascript/oop/primenenie-oop-pri-rabote-s-dom.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Применение <br>ООП при работе с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/oop/praktika-po-oop-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>по ООП в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<span>
+				Тут скоро будут еще уроки<br>
+				по функциональному и прототипному <br> стилю ООП.
+			</span>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика по ООП</h2>
+	<p class="C">
+		Ваша задача: посмотрите, попробуйте повторить.
+	</p>
+	<ul>	
+		<li>
+			<a href="https://youtu.be/k7LhGycrups" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Игра 5 точек в ряд без ООП для разминки</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/HEmShz9kJfw" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Игра 5 точек в ряд ООП вариант</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/sYUILPMnrIo" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Хранение массива в локальном хранилище (предварительная теория)</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/066UMYfXDaA" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Стикеры ООП (нужны основы Drag-and-Drop, выше в учебнике есть)</span>
+			</a>
+		</li>
+		
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/tasks/javascript/practice/diplomnye-proekty-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Дипломные <br>проекты на JavaScript</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ES6</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/symbol/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Тип Symbol</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/iterator/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Итераторы и генераторы</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Promise ES6</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/resolve-reject/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Функции resolve reject</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/catch/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Метод catch</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/chaining/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Цепочки промисов</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/error-handling/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перехват ошибок</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/Promise.all/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Promise.all</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/Promise.race/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Promise.race</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/async-await/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">async await</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/uploading-images/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Загрузка картинок</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+<div>
+	<h2>Библиотека jQuery</h2>
+	<p class="C">
+		Тк. jQuery устаревает, объявляю
+		эти уроки не обязательными и выношу в конец учебника
+		(так по уровню уроки середины учебника, если что).
+		В перспективе переедет в отдельный учебник по jq.
+	</p>
+	<ul>	
+		
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/osnovy-raboty-s-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/manipulirovanie-elementami-stranicy-cherez-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Манипулирование <br>элементами страницы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/rabota-s-naborom-elementov-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с набором элементов</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/rabota-s-sobytiyami-jquery.html" data-module="activator" data-activate="" class="active">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с событиями jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/rabota-s-effektami-i-animaciej-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Эффекты и анимация <br>библиотеки jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/praktika-na-otrabotku-biblioteki-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на отработку <br>библиотеки jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/rabota-s-bibliotekoj-jqueryui.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>библиотекой jQueryUI</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/populyarnye-plaginy-biblioteki-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Популярные плагины <br>библиотеки jQuery</span>
+			</a>
+		</li>
+	</ul>
+</div>					</div>
+				</div>
+			</aside>
+			<div class="content">
+				<main role="main">
+					<div class="nav-block">
+	<p>
+		Перед решением задач изучите <a href="http://code.mu/books/javascript/jquery/rabota-s-sobytiyami-jquery.html">теорию</a> к данному уроку.
+	</p>
+</div>					<h2 class="block">Задачи для решения</h2>
+
+<h3>События через отдельные методы</h3>
+<div>
+	<p>
+		<span class="-task-"></span> 
+		Даны абзацы. Сделайте так, чтобы по клику
+		на каждый абзац на экран выводилось его содержимое.
+	</p>
+</div>
+<div>
+	<p>
+		<span class="-task-"></span>
+		Привяжите всем ссылкам событие - по наведению на ссылку 
+		в конец ее текста дописывается ее href в круглых скобках.
+	</p>
+</div>
+<div>
+	<p>
+		<span class="-task-"></span>
+		Дополнить предыдущую задачу: после первого наведению на ссылку 
+		следует отвязать от нее событие, которое добавляет href в конец текста.
+	</p>
+</div>
+<div>
+	<p>
+		<span class="-task-"></span>
+		Привяжите всем инпутам событие - по потери фокуса 
+		каждый инпут выводит свое value в абзац с id="test".
+	</p>
+</div>
+<div>
+	<p>
+		<span class="-task-"></span>
+		Для всех инпутов сделайте так, чтобы они выводили свой value алертом при нажатии на любой из них,
+		но только по первому нажатию. Повторное нажатие на инпут не должно вызывать реакции.
+	</p>
+</div>
+<div>
+	<p>
+		<span class="-task-"></span>
+		Даны абзацы с числами. По нажатию на абзац в нем должен появится квадрат числа, которое он содержит.
+	</p>
+</div>
+<div>
+	<p>
+		<span class="-task-"></span>
+		Даны абзацы с числами. 
+		По клику на абзац в нем должен появится квадрат числа, которое он содержит, но только
+		по первому клику. По двойному клику на абзац число в абзаце должно удвоится,
+		но тоже только первый раз.
+	</p>
+</div>
+
+<h3>Задачи на on и off</h3>
+<div>
+	<p>
+		<span class="-task-"></span>
+		Привяжите всем ссылкам событие - по наведению на ссылку 
+		в конец ее текста дописывается ее href в круглых скобках.
+	</p>
+</div>
+<div>
+	<p>
+		<span class="-task-"></span>
+		Дополнить предыдущую задачу: после первого наведению на ссылку 
+		следует отвязать от нее событие, которое добавляет href в конец текста.
+	</p>
+</div>
+
+<h3>Задачи на one</h3>
+<div>
+	<p>
+		<span class="-task-"></span> 
+		Даны абзацы. Сделайте так, чтобы по первому клику
+		на абзац ему в конец добавлялся '!', но только по первому клику.
+	</p>
+</div>
+
+<h3>Задачи на делегирование через on</h3>
+<div>
+	<p>
+		<span class="-task-"></span> 
+		Дан <b>ul</b>, в нем несколько <b>li</b>.
+		Под <b>ul</b> сделайте кнопку, по нажатию на которую в конец <b>ul</b> будет добавляться
+		новый <b>li</b> с текстом 'пункт'. 
+		Сделайте так, чтобы при клике на каждый li, ему в конец добавлялся '!'.
+		Это должно работать и для вновь добавленных li. Задачу решите с помощью делегирования
+		(то есть событие должно быть навешано на ul).
+	</p>
+</div>
+<div>
+	<p>
+		<span class="-task-"></span> 
+		Дана таблица с юзерами с двумя колонками: имя и фамилия.
+		Под таблицей сделайте форму, с помощью которой можно будет добавить нового юзера в таблицу. 
+		Сделайте так, чтобы при клике на любую ячейку появлялся <b>prompt</b>,
+		с помощью которого можно изменить текст ячейки. Задачу решите с помощью делегирования
+		(то есть событие должно быть навешано на table).
+	</p>
+</div>										<div class="nav-block siblings-block">
+			<a href="http://code.mu/tasks/javascript/jquery/rabota-s-naborom-elementov-jquery.html" class="prev"><span class="arrow">←</span> Предыдущая страница</a>
+				<a href="http://code.mu/tasks/javascript/jquery/rabota-s-effektami-i-animaciej-jquery.html" class="next">Следующая страница <span class="arrow">→</span></a>
+	</div>
+
+				</main>
+				<aside>
+					<div class="bottom-menu" id="menu">
+						<div class="left sidebar">
+							<div>
+	<h2>Учебник JavaScript</h2>
+	<ul>	
+		
+		<li>
+			<a href="http://code.mu/tasks/javascript/" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Задачник <br>JavaScript для новичков</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/osnovy-yazyka-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>языка JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/osnovy-raboty-s-massivami-i-objektami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с массивами и объектами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/rabota-s-konstrukciyami-if-else-switch-case-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с конструкциями <br>if-else и switch-case</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/rabota-s-ciklami-for-i-while-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с циклами <br>for и while</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/rabota-s-matematicheskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с математическими функциями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/rabota-so-strokovymi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа со строковыми <br>функциями в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/rabota-s-funkciyami-dlya-massivov-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Функции <br>работы с массивами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/praktika-na-kombinacii-standartnyh-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на комбинации <br>стандартных функций</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/osnovy-raboty-s-polzovatelskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с пользовательскими функциями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/priemy-raboty-s-flagami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с флагами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/priemy-raboty-s-logicheskimi-znacheniyami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с логическими значениями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/priemy-raboty-s-ciklami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с циклами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/priemy-raboty-s-massivami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Приемы работы <br>с массивами</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/pravilnoe-ispolzovanie-polzovatelskih-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Правильное использование <br>пользовательских функций</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/praktika-na-rabotu-s-polzovatelskimi-funkciyami-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на <br>пользовательские функции</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/base/prodvinutaya-rabota-s-polzovatelskimi-funkciyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с пользовательскими функциями</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/tasks/javascript/practice/praktika-na-otrabotku-ciklov-i-funkcij-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>на отработку циклов и функций</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Работа с DOM</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/osnovy-raboty-s-dom-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/rabota-s-elementami-stranicy-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с элементами HTML страницы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/rabota-s-datami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с датами в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/rabota-s-tajmerami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с таймерами в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/prodvinutaya-rabota-s-sobytiyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с событиями</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/prodvinutaya-rabota-s-dom-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/rabota-s-metrikami-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с метриками</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/rabota-s-metrikami-dlya-window-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с метриками для window</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/osnovy-raboty-s-objektom-event-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы работы <br>с объектом Event</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/prodvinutaya-rabota-s-objektom-event-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с объектом Event</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/dom/raznye-poleznye-temy-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Разные <br>полезные темы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/node/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Работа с узлами</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/tasks/javascript/practice/praktika-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>JavaScript для новичков</span> <br>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/practice/miniproekty-javascript-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>минипроекты JavaScript</span> <br>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.youtube.com/playlist?list=PLqQ1VsG-wgxeYXOmdMAqSmIuQCY2xUc_I" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Разбор квадратного календарика</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/Yoh4XcbYNeQ" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Разбор игры найди случайное число в таблице</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Некоторые продвинутые вещи</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/prodvinutaya-rabota-s-funkciyami-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Анонимные <br>функции и замыкания</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/nekotorye-prodvinutye-funkcii-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Некоторые продвинутые <br>функции JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/nyuansy-raboty-s-sobytiyami-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Нюансы <br>работы с событиями</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ES6</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/novovvedeniya-v-es6-dlya-novichkov.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Нововведения <br>в ES6 для новичков</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/set/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Коллекция Set</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/map/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Коллекция Map</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Рекомендованное ES6</h2>
+	<ul>
+		<li>
+			<a href="https://www.youtube.com/playlist?list=PLqQ1VsG-wgxfPyBpybkNAAzJlIhC1cA39" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				плейлист на ютуб<br>
+				<span class="menu-hint">Практическое применение ES6</span>
+			</a>
+		</li>
+	</ul>
+	<p class="C">
+		Некоторые видео могут забегать вперед, тк к этому месту учебника
+		мы прошли еще не весь ES6. Просто пропускайте такие видео, посмотрите потом.
+	</p>
+</div>						</div>
+						<div class="right sidebar">
+							<div>
+	<h2>Регулярки</h2>
+	<ul>
+		
+		<li>
+			<span>
+				Урок №<span class="-sidebar-"></span> <br>Введение, задач нет
+			</span>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-1.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 1.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-2.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 2.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-3.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениями. Глава 3.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/regular/rabota-s-regulyarnymi-vyrazeniyami-v-javascript-glava-4.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с регулярными <br>выражениям. Глава 4.</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/regular/otlichiya-regulyarnyh-vyrazenij-javascript-ot-php-versii.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Отличия <br>от PHP версии</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>	
+	<h2>Разное</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/rabota-s-json-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с форматом JSON</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/rabota-s-kuki-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с куки (cookie)</span> 
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/rabota-s-lokalnym-hranilishchem-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с локальным хранилищем</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/advanced/animaciya-i-drugie-effekty-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Анимация <br>и другие эффекты</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Работа с канвасом</h2>
+	<ul>
+		
+		<li>
+			<span>
+				Урок №<span class="-sidebar-"></span> <br>Введение, задач нет
+			</span>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/canvas/osnovy-raboty-s-canvas-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с canvas</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/canvas/prodvinutaya-rabota-s-canvas-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с canvas</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>	
+		<li>
+			<a href="http://code.mu/tasks/javascript/practice/prodvinutaya-praktika-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>практика JavaScript</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>AJAX</h2>
+	<ul>
+		<li class="C">
+			урок исключен (мало материала), по аяксу скоро будет
+			отдельный учебник (много материала)
+		</li>
+		<!--
+		<li>
+			<a href="/tasks/javascript/advanced/rabota-s-ajax-v-javascript.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>AJAX в JavaScript</span>
+			</a>
+		</li>
+		-->
+		<!--
+		<li>
+			<a href="/tasks/javascript/advanced/rabota-s-ajax-v-javascript-i-php.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>AJAX + PHP</span>
+			</a>
+		</li>
+		-->
+	</ul>
+</div>
+<div>
+	<h2>Контекст</h2>
+	<ul>
+		
+		<li>
+			<span>
+				Урок №<span class="-sidebar-"></span> <br>Введение, задач нет
+			</span>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/context/prodvinutaya-rabota-s-kontekstom-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая <br>работа с контекстом</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+<div>
+	<h2>Drag-and-Drop</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/available-events/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Доступные события</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/element-movement-on-window/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перемещение элемента по окну</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/element-movement-on-another/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перемещение на другой элемент</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/oblect-event.dataTransfer/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Объект event.dataTransfer</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/image-instead-of-element-copy/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Картинка при перетягивании</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/drag-and-drop/cursor-drag-type/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Вид курсора</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ООП</h2>
+	<ul>
+		
+		<li>
+			<span>
+				Урок №<span class="-sidebar-"></span> <br>Введение, задач нет
+			</span>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/oop/osnovy-raboty-s-oop-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с ООП</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/oop/nasledovanie-klassov-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Наследование <br>классов в JavaScript</span>
+			</a>
+		</li>
+		<!--
+		<li>
+			<a href="/tasks/javascript/oop/prodvinutaya-rabota-s-klassami-na-javascript.html" data-module="activator" data-activate>                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Продвинутая работа <br>с классами на JavaScript</span>
+			</a>
+		</li>
+		-->
+		<li>
+			<a href="http://code.mu/tasks/javascript/oop/primenenie-oop-pri-rabote-s-dom.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Применение <br>ООП при работе с DOM</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/oop/praktika-po-oop-v-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика <br>по ООП в JavaScript</span>
+			</a>
+		</li>
+		<li>
+			<span>
+				Тут скоро будут еще уроки<br>
+				по функциональному и прототипному <br> стилю ООП.
+			</span>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Практика по ООП</h2>
+	<p class="C">
+		Ваша задача: посмотрите, попробуйте повторить.
+	</p>
+	<ul>	
+		<li>
+			<a href="https://youtu.be/k7LhGycrups" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Игра 5 точек в ряд без ООП для разминки</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/HEmShz9kJfw" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Игра 5 точек в ряд ООП вариант</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/sYUILPMnrIo" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Хранение массива в локальном хранилище (предварительная теория)</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://youtu.be/066UMYfXDaA" target="_blank">
+				Урок №<span class="-sidebar-"></span><br>
+				новая вкладка ютуб<br>
+				<span class="menu-hint">Стикеры ООП (нужны основы Drag-and-Drop, выше в учебнике есть)</span>
+			</a>
+		</li>
+		
+	</ul>
+</div>
+<div>
+	<h2>Практика</h2>
+	<ul>
+		<li>
+			<a href="http://code.mu/tasks/javascript/practice/diplomnye-proekty-na-javascript.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Дипломные <br>проекты на JavaScript</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>ES6</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/symbol/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Тип Symbol</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/iterator/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Итераторы и генераторы</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div>
+	<h2>Promise ES6</h2>
+	<ul>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/resolve-reject/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Функции resolve reject</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/catch/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Метод catch</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/chaining/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Цепочки промисов</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/error-handling/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Перехват ошибок</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/Promise.all/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Promise.all</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/Promise.race/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Promise.race</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/async-await/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">async await</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://new.code.mu/ru/javascript/book/promise/uploading-images/" target="_blank">
+				Урок №<span class="-sidebar-"></span> <br>
+				новая вкладка с new.code.mu<br>
+				<span class="menu-hint">Загрузка картинок</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+<div>
+	<h2>Библиотека jQuery</h2>
+	<p class="C">
+		Тк. jQuery устаревает, объявляю
+		эти уроки не обязательными и выношу в конец учебника
+		(так по уровню уроки середины учебника, если что).
+		В перспективе переедет в отдельный учебник по jq.
+	</p>
+	<ul>	
+		
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/osnovy-raboty-s-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Основы <br>работы с jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/manipulirovanie-elementami-stranicy-cherez-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Манипулирование <br>элементами страницы</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/rabota-s-naborom-elementov-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с набором элементов</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/rabota-s-sobytiyami-jquery.html" data-module="activator" data-activate="" class="active">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа <br>с событиями jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/rabota-s-effektami-i-animaciej-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Эффекты и анимация <br>библиотеки jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/praktika-na-otrabotku-biblioteki-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Практика на отработку <br>библиотеки jQuery</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/rabota-s-bibliotekoj-jqueryui.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Работа с <br>библиотекой jQueryUI</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://code.mu/tasks/javascript/jquery/populyarnye-plaginy-biblioteki-jquery.html" data-module="activator" data-activate="">                   
+				Урок №<span class="-sidebar-"></span> <br><span class="menu-hint">Популярные плагины <br>библиотеки jQuery</span>
+			</a>
+		</li>
+	</ul>
+</div>						</div>
+					</div>
+				</aside>
+			</div>
+			<footer>
+				<div class="footer">
+					<div class="C">
+	Трепачёв Дмитрий Петрович ©  2012-2019 г.
+	<br>
+	По всем вопросам пишите в skype: "dima-krasnyi" и контакт: <a href="https://vk.com/id55437525">Я в контакте</a>, 
+	звоните по телефону: +375 29 817 68 92.
+</div>					<div style="text-align: center;"><hr style="width: 100px; display: inline-block; border-color: black; margin: 5px 0;"></div>
+					<div style="font-size: 12px;">
+						На сайте есть опечатки, я в курсе. К лету я планирую выкатить
+						новую исправленную версию сайта, поэтому пока не присылайте мне опечатки.<br>
+						Приветствуются только опечатки с новых уроков, расположенных на поддомене
+						new.code.mu
+					</div>
+				</div>
+			</footer>			
+		</div>
+		<script>
+			$('iframe:not([style])').on('load', function(){$(this).height($(this).contents().find('html').height());})
+		</script>
+		<script src="./Задачи на работу с событиями jQuery _ Трепачёв Дмитрий_files/prism.js.Без названия"></script>
+		
+		<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24425807 = new Ya.Metrika({
+                    id:24425807,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/24425807" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->	
+</body></html>

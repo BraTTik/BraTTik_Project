@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)http://code.mu/exercises/javascript/jquery/rabota-s-effektami-i-animaciej-jquery/3/1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Задачник jQuery от Трепачёва Дмитрия</title>
+	<link rel="stylesheet" href="./styles(3).css">
+	<script src="./jquery.min.js(1).Без названия"></script>
+	<script>
+		$(document).ready(function(){
+			$('#fadeIn').click(
+				function(){
+					$('#block').fadeIn(500);
+					return false;
+				}
+			)
+			$('#fadeOut').click(
+				function(){
+					$('#block').fadeOut(500);
+					return false;
+				}
+			)
+			$('#fadeToDown').click(
+				function(){
+					$('#block').fadeTo(500, 0.5);
+					return false;
+				}
+			)
+			$('#fadeToUp').click(
+				function(){
+					$('#block').fadeTo(500, 1);
+					return false;
+				}
+			)
+		});
+	</script>
+</head>
+<body>
+	<p>
+		<a id="fadeOut" href="http://code.mu/exercises/javascript/jquery/rabota-s-effektami-i-animaciej-jquery/3/1.html">исчезнуть</a>
+		<a id="fadeIn" href="http://code.mu/exercises/javascript/jquery/rabota-s-effektami-i-animaciej-jquery/3/1.html">появится</a>
+		<a id="fadeToDown" href="http://code.mu/exercises/javascript/jquery/rabota-s-effektami-i-animaciej-jquery/3/1.html">затемнить</a>
+		<a id="fadeToUp" href="http://code.mu/exercises/javascript/jquery/rabota-s-effektami-i-animaciej-jquery/3/1.html">оттемнить</a>
+	</p>
+	<div id="block">
+		<ol>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+		</ol>
+	</div>
+
+</body></html>

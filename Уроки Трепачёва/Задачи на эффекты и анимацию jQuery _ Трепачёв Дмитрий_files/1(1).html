@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)http://code.mu/exercises/javascript/jquery/rabota-s-effektami-i-animaciej-jquery/2/1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Задачник jQuery от Трепачёва Дмитрия</title>
+	<link rel="stylesheet" href="./styles(2).css">
+	<script src="./jquery.min.js(1).Без названия"></script>
+	<script>
+		$(document).ready(function(){
+			$('#link').click(
+				function(){
+					$('#block').slideToggle(500, function(){
+							if($('#link').html() == 'свернуть'){
+								$('#link').html('развернуть');
+							}
+							else $('#link').html('свернуть');
+						}
+					)
+					return false;
+				}
+			)
+		});
+	</script>
+</head>
+<body>
+	<p>
+		<a id="link" href="http://code.mu/exercises/javascript/jquery/rabota-s-effektami-i-animaciej-jquery/2/1.html">свернуть</a>
+	</p>
+	<div id="block">
+		<ol>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+			<li>пункт списка</li>
+		</ol>
+	</div>
+
+</body></html>

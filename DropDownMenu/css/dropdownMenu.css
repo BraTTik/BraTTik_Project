@@ -1,0 +1,16 @@
+#startHere h2 {
+  cursor: pointer;
+  margin-bottom: 5px; }
+#startHere ul {
+  margin-top: 0;
+  list-style-type: none; }
+
+#dropdownMenu {
+  overflow: hidden;
+  transition: height 0.5s ease; }
+  #dropdownMenu .subMenu {
+    overflow: hidden; }
+    #dropdownMenu .subMenu ul {
+      transition: height 0.5s ease; }
+
+/*# sourceMappingURL=dropdownMenu.css.map */

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/babel">
+        class App extends React.Component{
+            constructor(){
+                super();
+                this.state = {	
+                    items: [1, 2, 3, 4],
+                    value: '',
+                };
+            }
+            handleChange(e){
+                let {target} = e;
+                let {value} = target;
+                this.setState({value});
+            }
+            handleSubmit(e){
+                alert(this.state.value);
+                e.preventDefault();
+            }
+            addItem(e){
+                e.preventDefault();
+                
+                let value = this.state.value;
+                this.state.items.push(value);
+                
+                this.setState({items: this.state.items});
+            }
+            render(){
+                const list = this.state.items.map((item, index) => {
+                    return <li key={index}>{item}</li>
+                });
+                console.log(this.state);
+                return(
+                    <div>
+                        <ul>
+                            { list }
+                        </ul>
+                        <form action="" onSubmit={ this.addItem.bind(this) }>
+                            <input type="text" value = {this.state.value} onChange = { this.handleChange.bind(this) }/>
+                            <input type="submit" />
+                        </form>
+                    </div>
+                )
+            }
+        }    
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('content')
+        );
+    </script>
+</body>
+<script src="https://npmcdn.com/react@15.3.0/dist/react.js"></script>
+<script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.js"></script>
+<script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+<script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
+<script src="https://npmcdn.com/remarkable@1.6.2/dist/remarkable.min.js"></script>
+</html>

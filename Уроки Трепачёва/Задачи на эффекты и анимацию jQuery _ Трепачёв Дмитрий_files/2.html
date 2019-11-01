@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)http://code.mu/exercises/javascript/jquery/rabota-s-effektami-i-animaciej-jquery/6/2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Задачник jQuery от Трепачёва Дмитрия</title>
+	<link rel="stylesheet" href="./styles(6).css">
+	<script src="./jquery.min.js(1).Без названия"></script>
+	<script>
+		$(document).ready(function(){
+			$('#block').click(
+				function(){
+					$(this).animate({width: '+=200px'}, 1000);
+					return false;
+				}
+			);
+		});
+	</script>
+</head>
+<body>
+	<div id="block"></div>
+
+</body></html>

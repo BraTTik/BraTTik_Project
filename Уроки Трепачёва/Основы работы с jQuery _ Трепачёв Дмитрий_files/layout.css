@@ -1,0 +1,41 @@
+/*
+	2 или 3 колоночный макет страницы на флоатах. 
+	Версия 1.0.
+*/
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 95%;
+  min-width: 0px;
+  max-width: 1300px;
+}
+.header {
+  height: auto;
+  margin-bottom: 25px;
+}
+.content,
+.center {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 245px;
+  margin-right: 245px;
+  padding: 0px 0px;
+}
+.content {
+  min-height: 0px;
+}
+.left {
+  float: left;
+  width: 220px;
+}
+.right {
+  float: right;
+  width: 220px;
+}
+.footer {
+  clear: both;
+  height: auto;
+  margin-top: 25px;
+}

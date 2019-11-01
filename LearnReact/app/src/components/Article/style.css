@@ -1,0 +1,13 @@
+.card-text__closed{
+    max-height: 0;
+    overflow: hidden;
+}
+
+.card-text__opened{
+    max-height: 50rem;
+    overflow: hidden;
+}
+
+.animated-opening{
+    transition: all 1s
+}
