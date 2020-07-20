@@ -1,0 +1,32 @@
+nav{
+    font-family: Montserrat, sans-serif;
+    height: 80px;
+    width: 100%;
+}
+
+.nav-item:any-link{
+    text-decoration: none;
+    font-family: 'Montserrat';
+    transition: all .3s ease;
+    border-bottom: 2px solid transparent;
+
+}
+.nav-item:hover{
+    border-bottom: 2px solid #333;
+}
+
+.topbar{
+    font-size: .9rem;
+}
+#user{
+    position: absolute;
+    right: 5.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#user.menu-opened{
+    top: 1.75rem;
+}
+#user>div{
+    cursor: pointer;
+}

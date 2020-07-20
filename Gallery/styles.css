@@ -1,0 +1,14 @@
+#gallery_root{
+    position: absolute;
+    width: 70vw;
+    border: 1px solid burlywood;
+    font-size: 1rem;
+    color: #fff;
+    background-color: ivory;
+}   
+
+a{
+    color: #fff;
+    text-decoration: none;
+}
+

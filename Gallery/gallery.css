@@ -1,0 +1,139 @@
+.gallery_wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.slider_wrapper{
+    height: 100%;
+    position: relative;
+    transition: height .1s ease;
+}
+
+.arrow{
+    width: 2.5rem;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 19999;
+    background-color: rgba(0, 0, 0, .1);
+}
+.arrow:focus,
+.arrow:hover{
+    background-color: rgba(0, 0, 0, .6);
+}
+.previousArrow{
+    left: 0;
+}
+.nextArrow{
+    right: 0;
+}
+
+.image_wrapper{
+
+}
+
+.gallery_slide{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    top: 0;
+
+
+}
+.gallery_slide img{
+    max-width: 100%;
+    width: 100%;
+}
+
+.gallery_slide.active_slide{
+    left: 0;
+}
+.gallery_slide.next_slide{
+    left: 101%;
+}
+.gallery_slide.previous_slide{
+    left: -101%
+}
+
+.gallery_slide,
+.gallery_slide.active_slide,
+.gallery_slide.next_slide,
+.gallery_slide.previous_slide{
+    transition: left .3s ease-in;
+}
+
+.slide_title{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 70%;
+    background-color: rgba(0, 0, 0, .3);
+    padding: .5em 2em;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.slide_title > *{
+    margin: 0;
+}
+
+.preview_wrapper{
+    height: auto;
+    min-height: 4.5rem;
+    padding: .5em 0 0;
+    display: flex;
+}
+
+.preview_window{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.preview_button{
+    min-width: 2.5rem;
+    cursor: pointer;
+    z-index: 19999;
+    background-color: rgba(0, 0, 0, .1);
+    height: 100%;
+}
+
+.preview_list{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    list-style-type: none;
+    position: absolute;
+    transition: left .2s ease-in-out;
+}
+
+.preview_element{
+    padding: .2rem;
+    transition: transform .1s ease;
+}
+.preview_element + .preview_element{
+    margin-left: 1.1em;
+}
+
+.preview_element.active_preview{
+    transform: scale(1.3);
+}
+.preview_image{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
