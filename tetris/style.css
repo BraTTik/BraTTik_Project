@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+}
+
+.grid{
+    width: 200px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: yellow;
+}
+
+.grid div{
+    width: 20px;
+    height: 20px;
+}
+
+.tetronimo{
+    background-color: blue;
+    border-top: 2px solid rgba(255,255,255, .5);
+    border-left: 2px solid rgba(255,255,255, .5);
+    border-bottom: 2px solid rgba(0, 0, 0, .5);
+    border-right: 2px solid rgba(0, 0, 0, .5);
+}
+
+.mini-grid{
+    height: 80px;
+    width: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+    background-color: yellow;
+}
+
+.mini-grid div{
+    width: 20px;
+    height: 20px;
+}

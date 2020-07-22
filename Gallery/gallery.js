@@ -68,9 +68,8 @@ class Gallery{
         const activeSlide = this._makeSlide(this.slides[this._active]);
         activeSlide.classList.add('active_slide');
         activeSlide.style.left = 0;
+        //this._slideFormat(this._activeSlide);
         this._activeSlide = this._showSlide(activeSlide);
-        this._slideFormat(activeSlide);
-
         return activeSlide;
     }
     setNextSlide = () => {
@@ -109,7 +108,13 @@ class Gallery{
 
     init = () => {
         this._makeStructure();
-        window.addEventListener('resize', () => { this._calculateSliderWrapperHeight(this._slider)});
+        this._calculateSliderWrapperHeight(this._slider);
+        this._isMobile();
+        window.addEventListener('resize', () => { 
+            this._isMobile();
+            this._calculateSliderWrapperHeight(this._slider);
+            this._fixImgSize(this._activeSlide);
+        });
         this._previousArrow.addEventListener('click', this.previous);
         this._nextArrow.addEventListener('click', this.next);
         this._slider.addEventListener('touchmove', (e) => { this._swipeHandler(e, this._swipe.bind(this)) });
@@ -245,6 +250,7 @@ class Gallery{
 
     _showSlide = (slide) =>{
         this._slider.appendChild(slide);
+        this._slideFormat(slide);
         return slide;
     }
     _hideSlide = (slide) => {
@@ -270,15 +276,31 @@ class Gallery{
     }
 
     _slideFormat = (slide) => {
-        const image = slide.children[0];
-        console.log(image.offsetHeight)
-        this._slider.style.height = image.offsetHeight + 'px';
+        const img = slide.children[0];
+        const imageSrc = img.src;
+        const image = new Image();
+        image.src = imageSrc;
+        const width = image.width;
+        const height = image.height;
+        
+        width <= height ? this._setPortrait(img) : this._setLandscape(img);
+        this._fixImgSize(slide);
     }
 
-    _setLandscape(){
+    _fixImgSize = (slide) => {
+        const img = slide.children[0];
+        if(img.offsetHeight > slide.offsetHeight){
+            img.style.height = 100 + '%';
+            img.style.width = 'auto';
+        }
+    }
+
+    _setLandscape(img){
+        img.classList.add('landscape');
         console.log('Landscape')
     }
-    _setPortrait(){
+    _setPortrait(img){
+        img.classList.add('portrait');
         console.log('Portrait')
     }
 
@@ -364,7 +386,7 @@ class Gallery{
 
     _calculateSliderWrapperHeight = (wrapper) =>{
         const width = wrapper.offsetWidth;
-        const height = width/9 * 16;
+        const height = width;
         wrapper.style.height = height + 'px';
     }
 
@@ -401,16 +423,33 @@ class Gallery{
         return { title, image };
     }
 
-    _checkGalleryHeight(){
-        let height = this._galleryWrapper.offsetHeight;
-        console.log(height);
-        if(height < 320){
-            this._preview.style.display = 'none';
+    _isMobile = () =>{
+        if(document.body.offsetWidth < 550 ){
+           this._hidePreview();
         }else{
-            this._preview.style.display = 'flex';
+            this._showPreview();
         }
     }
 
+    _hidePreview = () => {
+        this._preview.style.display = 'none';
+    }
+
+    _showPreview = () => {
+        this._preview.style.display = 'flex';
+    }
+
+    _fullScreenOn = () => {
+        this._hidePreview();
+    }
+
+    _fullScreenOff = () => {
+
+    }
+
+    static getRef(){
+        return this;
+    }
 }
 
 window.addEventListener('load', () => {

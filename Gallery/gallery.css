@@ -9,7 +9,6 @@
 .slider_wrapper{
     height: 100%;
     position: relative;
-    transition: height .1s ease;
 }
 
 .arrow{
@@ -41,16 +40,26 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-size: cover;
-    background-repeat: no-repeat;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     top: 0;
 
 
 }
 .gallery_slide img{
+    display: block;
     max-width: 100%;
+}
+
+img.portrait{
+    height: 100%;
+    width: auto;
+}
+img.landscape{
     width: 100%;
+    height: auto;
 }
 
 .gallery_slide.active_slide{
